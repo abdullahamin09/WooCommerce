@@ -1,4 +1,10 @@
 # React + Vite
+# Git Push
+git add .
+git commit -m "commit message"
+git branch -M main
+git push -u origin main
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
