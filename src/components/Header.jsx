@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import img1 from "../assets/images/account.png";
 import img2 from "../assets/images/cart.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   // const [darkMode, setDarkMode] = useState(false);
@@ -64,10 +65,10 @@ const Header = () => {
         </ul>
         <div className="my-auto flex items-center  max-md:ml-[20px]">
           <p className="mr-3">R100,00</p>
-          <div className="accWrap mr-3">
+          <Link to="/cart" className="cart-wrap mr-3">
             <img className="w-[42px]" src={img2} alt="account" />
-          </div>
-          <div className="cart-wrap">
+          </Link>
+          <div className="accWrap">
             <img className="w-[29px]" src={img1} alt="cart" />
           </div>
         </div>

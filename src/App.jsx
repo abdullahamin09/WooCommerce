@@ -3,6 +3,9 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import LoginAndRegister from './components/LoginAndRegister'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Shop from './pages/Shop'
+import Home from './pages/Home'
+import Cart from './components/Cart'
 
 function App() {
 
@@ -11,9 +14,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-            <Route index element={<LoginAndRegister />} />
+            <Route index element={<Home />} />
             <Route path='/login' element={<LoginAndRegister />} />
-            <Route path='/register' element={<LoginAndRegister />} />
+            <Route path='/shop' element={<Shop />} />
+            <Route path='/cart' element={<Cart />} />
         </Routes>
         <Footer />
     </BrowserRouter>

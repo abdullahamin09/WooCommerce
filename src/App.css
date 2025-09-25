@@ -1,0 +1,72 @@
+.shop-card-pagination .ant-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-card-pagination .ant-pagination .ant-pagination-item {
+    border: 1px solid #2F8EFF;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 0;
+    margin-right: 0;
+    border-right: 0;
+}
+
+.shop-card-pagination .ant-pagination .ant-pagination-item a {
+    color: #2F8EFF;
+}
+
+.shop-card-pagination .ant-pagination .ant-pagination-item-active {
+    background-color: #2F8EFF;
+    border-color: #2F8EFF;
+}
+
+.shop-card-pagination .ant-pagination .ant-pagination-item-active a {
+    color: #fff;
+}
+
+.shop-card-pagination .ant-pagination .ant-pagination-prev,
+.ant-pagination .ant-pagination-next {
+    border: 1px solid #2F8EFF;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    margin-right: 0;
+}
+.shop-card-pagination .ant-pagination .ant-pagination-prev,
+.ant-pagination .ant-pagination-next:first-child {
+    border-right: 0;
+}
+
+
+.shop-card-pagination .ant-pagination .ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination .ant-pagination-next .ant-pagination-item-link {
+    color: #2F8EFF;
+}
+
+.dropdown-button .ant-btn {
+    border: 1px solid #2B2D2F;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    height: 32px;
+    width: 286px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}  
+:where(.css-dev-only-do-not-override-1odpy5d).ant-rate .ant-rate-star{
+    color: #F5A623;
+} 
+.cart-wrap .table tr,th{
+    border: 2px solid black;
+}
