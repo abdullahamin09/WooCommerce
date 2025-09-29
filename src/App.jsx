@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Shop from './pages/Shop'
 import Home from './pages/Home'
 import Cart from './components/Cart'
+import SingleProduct from './pages/SingleProduct'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <Route path='/login' element={<LoginAndRegister />} />
             <Route path='/shop' element={<Shop />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/singleproduct' element={<SingleProduct />} />
         </Routes>
         <Footer />
     </BrowserRouter>

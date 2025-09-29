@@ -67,11 +67,11 @@ const Cart = () => {
                   <p>Coupon:</p>
                   <input className="w-[145px] pl-1 h-[44px] font-bold focus:outline-none uppercase" type="text" name="coupon" id="" />
                 </div>
-                <button className="bg-[#2F8EFF] text-[16px]/[24px] font-bold text-white h-[44px] w-[126px]">Apply coupon</button>
+                <button className="bg-[#2F8EFF] text-[16px]/[24px] font-bold text-white h-[44px] w-[126px] cursor-pointer">Apply coupon</button>
               </div>
             </td>
             <td>
-              <button className="bg-[#2F8EFF] text-[20px]/[30px] text-white h-[70px] w-[181px]">Update basket</button>
+              <button className="bg-[#2F8EFF] text-[20px]/[30px] text-white h-[70px] w-[181px] cursor-pointer">Update basket</button>
             </td>
           </tr>
         </table>
@@ -85,7 +85,7 @@ const Cart = () => {
             <Card />
           </div>
         </div>
-        <div className="basket-total flex-1">
+        <div className="basket-total w-full flex-1">
           <p className="text-[24px]/[34px] font-bold">Basket Total</p>
           <table className="Subtotal border-[2px] border-[#000000] w-full text-left text-[20px]/[30px] mt-[20px]">
             <tr className="h-[62px] border-b-[2px] border-[#000000]">
@@ -93,8 +93,8 @@ const Cart = () => {
               <td className=" pl-[17px]" colSpan={2}>R200,00</td>
             </tr>
             <tr className="border-b-[2px] border-[#000000]">
-              <td className="font-bold pl-[17px]">Shipping</td>
-              <td className="shipping-wrap pl-[17px]">
+              <td className="font-bold pl-[17px] align-top pt-[20px]">Shipping</td>
+              <td className="shipping-wrap pl-[17px] pt-[20px]">
                 <div className="radio flex flex-col gap-2 mb-2">
                   <div>
                     <input type="radio" id="freeShipping" name="shipping" value="value1" />
@@ -121,7 +121,7 @@ const Cart = () => {
             </tr>
           </table>
           <div className="checkOutButton">
-            <button className="bg-[#FF7A00] text-[24px]/[34px] font-bold text-white h-[94px] w-full max-sm:w-[390px] mt-[20px]">Proceed to checkout</button>
+            <button className="bg-[#FF7A00] text-[24px]/[34px] font-bold text-white h-[94px] w-full max-sm:w-[390px] mt-[20px] cursor-pointer">Proceed to checkout</button>
           </div>
         </div>
       </div>
