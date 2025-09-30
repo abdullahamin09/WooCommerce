@@ -1,7 +1,7 @@
 # React + Vite
 # Git Push
 git add .
-git commit -m "Added SingleProduct Page"
+git commit -m "Added Account Page and filter "
 git branch -M main
 git push -u origin main
 
