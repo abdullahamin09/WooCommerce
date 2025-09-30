@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LoginAndRegister = () => {
     return (
@@ -9,11 +10,11 @@ const LoginAndRegister = () => {
                     <p className='text-[48px]/[66px] font-bold'>Login</p>
                     <form action="" className="login-form gap-[20px] flex flex-col">
                         <div className="flex flex-col">
-                            <label className='text-[16px]/[24px] font-medium' htmlFor="email">Email address<span>*</span></label>
+                            <label className='text-[16px]/[24px] font-medium' htmlFor="email">Email address <span  className="text-[#FF0000]">*</span></label>
                             <input className='w-full border-[2px] h-[55.5px]' type="email" name="email" id="" />
                         </div>
                         <div className="flex flex-col">
-                            <label className='text-[16px]/[24px] font-medium' htmlFor="password">Password<span>*</span></label>
+                            <label className='text-[16px]/[24px] font-medium' htmlFor="password">Password <span  className="text-[#FF0000]">*</span></label>
                             <input className='w-full border-[2px] h-[55.5px]' type="password" name="password" id="" />
                         </div>
                         <div className="button-wrap grid grid-cols-2 max-md:grid-cols-1 gap-2 items-center">
@@ -23,7 +24,7 @@ const LoginAndRegister = () => {
                                 <label htmlFor="remember-me">Remember me</label>
                             </div>
                             <div className='font-bold text-sky-500'>
-                                <a href="#">Lost your password?</a>
+                                <Link to = "/forgetpassword">Lost your password?</Link>
                             </div>
                         </div>
                     </form>
@@ -32,11 +33,11 @@ const LoginAndRegister = () => {
                     <p className='text-[48px]/[66px] font-bold'>Register</p>
                     <form action="" className="register-form gap-[20px] flex flex-col">
                         <div className="flex flex-col">
-                            <label className='text-[16px]/[24px] font-medium' htmlFor="email">Email address<span>*</span></label>
+                            <label className='text-[16px]/[24px] font-medium' htmlFor="email">Email address <span  className="text-[#FF0000]">*</span></label>
                             <input className='w-full border-[2px] h-[55.5px]' type="email" name="email" id="" />
                         </div>
                         <div className="flex flex-col">
-                            <label className='text-[16px]/[24px] font-medium' htmlFor="password">Password<span>*</span></label>
+                            <label className='text-[16px]/[24px] font-medium' htmlFor="password">Password <span  className="text-[#FF0000]">*</span></label>
                             <input className='w-full border-[2px] h-[55.5px]' type="password" name="password" id="" />
                         </div>
                         <div className="button-wrap  ">

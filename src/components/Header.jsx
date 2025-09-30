@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import img1 from "../assets/images/account.png";
 import img2 from "../assets/images/cart.png";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const Header = () => {
   // const [darkMode, setDarkMode] = useState(false);
@@ -48,7 +48,7 @@ const Header = () => {
         >
 
           <li className="mr-3">
-            <a href="">Shop</a>
+            <Link to="/shop">Shop</Link>
           </li>
           <li className="mr-3">
             <a href="">Services</a>
@@ -68,9 +68,9 @@ const Header = () => {
           <Link to="/cart" className="cart-wrap mr-3">
             <img className="w-[42px]" src={img2} alt="account" />
           </Link>
-          <div className="accWrap">
+          <Link to="/myaccount" className="accWrap">
             <img className="w-[29px]" src={img1} alt="cart" />
-          </div>
+          </Link>
         </div>
       </div>
       <div className="button flex items-center justify-end w-10px">

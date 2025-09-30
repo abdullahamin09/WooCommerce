@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Shop from './shop'
+import FeaturedCategory from '../components/FeaturedCategory'
 
 const Home = () => {
   return (
-    <div className='flex flex-col items-center justify-center h-screen gap-4 text-2xl font-semibold'>
-      <Link to="/">Home</Link>
-      <Link to="/shop">Shop</Link>
-      <Link to="/login">SignIn</Link>
+    <div className='flex flex-col  gap-4 text-2xl font-semibold'>
+      <FeaturedCategory Features = 'Welcome To Home Page' Details='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore .'/>
+      <Shop />
     </div>
   )
 }

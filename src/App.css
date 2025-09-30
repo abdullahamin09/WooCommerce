@@ -40,6 +40,7 @@
     border-radius: 0;
     margin-right: 0;
 }
+
 .shop-card-pagination .ant-pagination .ant-pagination-prev,
 .ant-pagination .ant-pagination-next:first-child {
     border-right: 0;
@@ -63,10 +64,73 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 15px;
-}  
-:where(.css-dev-only-do-not-override-1odpy5d).ant-rate .ant-rate-star{
+}
+
+:where(.css-dev-only-do-not-override-1odpy5d).ant-rate .ant-rate-star {
     color: #F5A623;
-} 
-.cart-wrap .table tr,th{
+}
+
+.cart-wrap .table tr,
+th {
     border: 2px solid black;
+}
+
+.activeFilter .activeFilterSlider .ant-slider-track {
+    background-color: black;
+    height: 1px;
+}
+
+.activeFilter .activeFilterSlider .ant-slider-rail {
+    height: 1px;
+}
+
+.activeFilter .activeFilterSlider .ant-slider-step {
+    height: 1px;
+}
+
+.activeFilter .activeFilterSlider :where(.css-dev-only-do-not-override-1odpy5d).ant-slider .ant-slider-handle::after {
+    box-shadow: 0 0 0 2.5px black;
+    outline: none;
+}
+
+.activeFilter .activeFilterSlider .ant-slider-handle::after {
+    border: black;
+    border: 1px;
+    color: black;
+}
+
+.myAccDets .cart-wrap .table tr,
+th {
+    border: none;
+}
+
+.myAccDets :where(.css-dev-only-do-not-override-1odpy5d).ant-table-wrapper .ant-table-thead>tr>th,
+:where(.css-dev-only-do-not-override-1odpy5d).ant-table-wrapper .ant-table-thead>tr>td {
+    background: #50575E;
+    color: white;
+}
+
+.myAccDets :where(.css-dev-only-do-not-override-1odpy5d).ant-table-wrapper .ant-table-container table>thead>tr:first-child>*:first-child {
+    border-start-start-radius: 0;
+}
+
+.myAccDets :where(.css-dev-only-do-not-override-1odpy5d).ant-table-wrapper .ant-table-container table>thead>tr:first-child>*:last-child {
+    border-start-end-radius: 0;
+}
+
+.myAccDets :where(.css-dev-only-do-not-override-1odpy5d).ant-table-wrapper .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before,
+:where(.css-dev-only-do-not-override-1odpy5d).ant-table-wrapper .ant-table-thead>tr>td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+    background-color: transparent;
+}
+
+
+
+.myAccDets .ant-table-tbody :where(.css-dev-only-do-not-override-1odpy5d).ant-table-wrapper .ant-table-tbody>tr>th,
+:where(.css-dev-only-do-not-override-1odpy5d).ant-table-wrapper .ant-table-tbody>tr>td {
+    border-bottom: 1px solid #000000;
+}
+
+.myAccDets .ant-table-content {
+    border-left: 1px solid #000 ;
+    border-right: 1px solid #000 ;
 }

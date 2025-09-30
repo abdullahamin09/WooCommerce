@@ -3,10 +3,11 @@ import Card from '../components/Card'
 import { Icon } from '@iconify/react'
 import { Pagination, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-
+import ActiveFilter from '../components/ActiveFilter';
 
 const Shop = () => {
   const [selected, setSelected] = useState("By Relevance");
+  const [activeFilter, setActiveFilter] = useState(false);
   const onChange = (page) => {
     console.log("Current Page:", page);
   };
@@ -61,68 +62,68 @@ const Shop = () => {
 
   return (
     <div className='shop xl:mx-[80px] lg:mx-[100px] md:mx-[80px] 2xl:mx-[120px]'>
-      <div className=" ">
-        <p className='text-[48px]/[66px] font-bold '>Shop</p>
-        <div className='flex justify-between items-center mt-5'>
-          <p className='text-[20px]/[30px] font-medium '>Showing 1-16 of 44 results</p>
-          <div className='dropdown-button'>
-            <Dropdown menu={{ items }} trigger={['click']} placement="bottom">
-              <Button>
-                {selected}
-                <DownOutlined />
-              </Button>
+      <div className="flex justify-between items-center">
+      <p className='text-[48px]/[66px] font-bold mb-5'>Shop</p>
+      <Icon onClick={() => setActiveFilter(!activeFilter)} className='cursor-pointer' icon="mage:filter-fill" width="30" height="30" style={{ color: '#000'}} />
+      </div>
+      <div className={` ${activeFilter ? 'flex' : 'flex-none'} `}>
+        <div className="activeFilter">
+          {activeFilter ? (true &&
+            <div className={`mr-[60px] 2xl:mr-[120px] top-0 left-0 h-full bg-white transform transition-transform duration-500 ease-in-out
+        ${activeFilter ? "translate-x-0" : "-translate-x-full"}`}>
+              <ActiveFilter />
+            </div>
+          ) : ('')}
+        </div>
+        <div className="productShop">
+          <div className=" ">
+            <div className='flex justify-between items-center'>
+              <p className='text-[20px]/[30px] font-medium '>Showing 1-16 of 44 results</p>
+              <div className='dropdown-button'>
+                <Dropdown menu={{ items }} trigger={['click']} placement="bottom">
+                  <Button>
+                    {selected}
+                    <DownOutlined />
+                  </Button>
 
-            </Dropdown>
+                </Dropdown>
+              </div>
+            </div>
+          </div>
+          {/* {` ${activeFilter ? 'flex' : 'flex-none'} `} */}
+          <div className={`Card-wrap place-items-center  grid sm:grid-cols-2 2xl:grid-cols-4 grid-cols-1 gap-5 my-10 ${activeFilter ? 'xl:grid-cols-2 lg:grid-cols-2 gap-20' : 'xl:grid-cols-4 lg:grid-cols-3'}`}>
+
+            {products.map((product) => (
+              <Card className={`w-[224px] ${activeFilter ? 'xl:w-[224px]' : 'xl:w-[285px]'}`}
+                key={product.id}
+                Ptitle={product.title}
+                Pprice={product.price}
+                Prating={product.rating}
+                Pdetails={product.details}
+              />
+            ))}
+          </div>
+          <div className="flex justify-between items-center gap-5 mb-10">
+            <button className='flex gap-1 text-[20px]/[20px] font-bold text-[#2F8EFF] cursor-pointer'>
+              <Icon icon="si:arrow-left-duotone" width="20" height="20" />
+              Previous
+            </button>
+            <div className="shop-card-pagination">
+              <Pagination
+                defaultCurrent={2}
+                total={90}
+                pageSize={16}
+                onChange={onChange}
+                showSizeChanger={false}
+              />
+
+            </div>
+            <button className='flex gap-1 text-[20px]/[20px] font-bold text-[#2F8EFF] cursor-pointer'>
+              Next
+              <Icon icon="si:arrow-right-duotone" width="20" height="20" />
+            </button>
           </div>
         </div>
-      </div>
-      <div className="Card-wrap place-items-center  grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 my-10">
-
-        {products.map((product) => (
-          <Card
-            key={product.id}
-            Ptitle={product.title}
-            Pprice={product.price}
-            Prating={product.rating}
-            Pdetails={product.details}
-          />
-        ))}
-
-        {/* <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card /> */}
-      </div>
-      <div className="flex justify-between items-center gap-5 mb-10">
-        <button className='flex gap-1 text-[20px]/[20px] font-bold text-[#2F8EFF] cursor-pointer'>
-          <Icon icon="si:arrow-left-duotone" width="20" height="20" />
-          Previous
-        </button>
-        <div className="shop-card-pagination">
-          <Pagination
-            defaultCurrent={2}
-            total={90}
-            pageSize={16}
-            onChange={onChange}
-            showSizeChanger={false}
-          />
-
-        </div>
-        <button className='flex gap-1 text-[20px]/[20px] font-bold text-[#2F8EFF] cursor-pointer'>
-          Next
-          <Icon icon="si:arrow-right-duotone" width="20" height="20" />
-        </button>
       </div>
     </div>
   )
