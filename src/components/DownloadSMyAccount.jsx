@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import { Table } from "antd"
 
 const DownloadSMyAccount = () => {
@@ -6,37 +7,18 @@ const DownloadSMyAccount = () => {
         { title: 'Downloads Remaining', dataIndex: 'downloadsRemaining', key: 'downloadsRemaining' },
         { title: 'Expires', dataIndex: 'expires', key: 'expires' },
         { title: 'Download', dataIndex: 'download', key: 'download' },
-        
-    ];
-    const columnsOrderDets = [
-        { title: 'Product', dataIndex: 'product', key: 'product' },
-        { title: 'total', dataIndex: 'total', key: 'total' },
-        
+        {
+            title: 'Action',
+            dataIndex: '',
+            key: 'x',
+            render: () => <button className="w-[152px] h-[42px] bg-[#2F8EFF] text-white flex items-center justify-center gap-[10px] cursor-pointer">
+                Download
+                <Icon icon="fa-solid:download" width="20" height="20" style={{ color: '#fff' }} />
+            </button>,
+        },
+
     ];
 
-    const dataOrderDets = [
-        {
-            key: 1,
-            product: 'LSX Banners',
-            total: 'R150',
-        },
-        {
-            key: 2,
-            product: 'LSX Banners',
-            total: 'R150',
-        },
-        {
-            key: 3,
-            product: 'LSX Banners',
-            total: 'R150',
-        },
-        {
-            key: 4,
-            product: 'LSX Banners',
-            total: 'R150',
-        },
-    ];
-    
     const data = [
         {
             key: 1,
@@ -66,7 +48,7 @@ const DownloadSMyAccount = () => {
             expires: 'Never',
             download: 'LSX:Banners',
         },
-        
+
 
     ];
     return (
@@ -75,13 +57,6 @@ const DownloadSMyAccount = () => {
                 <Table
                     columns={columns}
                     dataSource={data}
-                    pagination={false}
-                />
-            </div>
-            <div className="order-Dets my-[30px]">
-                <Table
-                    columns={columnsOrderDets}
-                    dataSource={dataOrderDets}
                     pagination={false}
                 />
             </div>

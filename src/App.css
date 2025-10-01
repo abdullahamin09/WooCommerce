@@ -131,6 +131,20 @@ th {
 }
 
 .myAccDets .ant-table-content {
-    border-left: 1px solid #000 ;
-    border-right: 1px solid #000 ;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+
+.orderDetails .orderDetailsAddress .addressPTag, .orderDetails .orderDetailsAddress .editButton {
+    display: none;
+}
+
+.orderDetails .orderDetailsAddress .address{
+    gap: 8px;
+}
+
+.orderDetails .orderDetailsAddress .address .addressDetailsPTags{
+padding: 20px;
+border: 1px solid #EEEEEE;
 }

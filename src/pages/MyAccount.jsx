@@ -2,9 +2,13 @@ import { Table } from "antd"
 import DownloadSMyAccount from "../components/DownloadSMyAccount";
 import AddressMyAcc from "../components/AddressMyAcc";
 import { useState } from "react";
+import EditAddress from "./EditAddress";
+import AccountDetails from "./AccountDetails";
+import OrderDetails from "../components/OrderDetails";
 
 const MyAccount = () => {
-  const [activePage, SetActivePage] = useState("dashboard")
+  const [activePage, setActivePage] = useState("dashboard")
+
   const columns = [
     { title: 'order', dataIndex: 'order', key: 'order' },
     { title: 'date', dataIndex: 'date', key: 'date' },
@@ -14,7 +18,10 @@ const MyAccount = () => {
       title: 'Action',
       dataIndex: '',
       key: 'x',
-      render: () => <button className="w-[117px] h-[44px] bg-[#2F8EFF] text-white">View</button>,
+      render: () => <button
+      onClick={() => setActivePage('orderDetails')}
+        className="w-[117px] h-[44px] bg-[#2F8EFF] text-white"
+      >View</button>,
     },
   ];
   const data = [
@@ -61,27 +68,27 @@ const MyAccount = () => {
           <ul className='text-[20px]/[30px] font-bold'>
             <li
               className={`h-[78px] w-[285px] border-[1px] border-[#000000] flex items-center pl-[30px] ${activePage === 'dashboard' ? 'bg-[#000000] text-[white]' : ''}`}
-            onClick={() => SetActivePage('dashboard')} >
+              onClick={() => setActivePage('dashboard')} >
               Dashboard</li>
             <li
               className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${activePage === 'order' ? 'bg-[#000000] text-[white]' : ''}`}
-            onClick={() => SetActivePage('order')} >
+              onClick={() => setActivePage('order')} >
               Order</li>
             <li
               className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${activePage === 'downloads' ? 'bg-[#000000] text-[white]' : ''}`}
-            onClick={() => SetActivePage('downloads')} >
+              onClick={() => setActivePage('downloads')} >
               Downloads</li>
             <li
               className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${activePage === 'editAddress' ? 'bg-[#000000] text-[white]' : ''}`}
-            onClick={() => SetActivePage('editAddress')} >
+              onClick={() => setActivePage('editAddress')} >
               Edit address</li>
             <li
               className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${activePage === 'accountDetails' ? 'bg-[#000000] text-[white]' : ''}`}
-            onClick={() => SetActivePage('accountDetails')} >
+              onClick={() => setActivePage('accountDetails')} >
               Account details</li>
             <li
               className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${activePage === 'logout' ? 'bg-[#000000] text-[white]' : ''}`}
-            onClick={() => SetActivePage('logout')} >
+              onClick={() => setActivePage('logout')} >
               Logout</li>
           </ul>
         </div>
@@ -115,8 +122,20 @@ const MyAccount = () => {
               <DownloadSMyAccount />
 
             )}
-            {activePage === 'downloads' && (
-              <AddressMyAcc />
+            {activePage === 'editAddress' && (
+              <AddressMyAcc onAction={setActivePage} />
+            )}
+            {activePage === 'editBillingingAddress' && (
+              <EditAddress EditAddressProp='Billing' />
+            )}
+            {activePage === 'editShippingAddress' && (
+              <EditAddress EditAddressProp='Shipping' />
+            )}
+            {activePage === 'accountDetails' && (
+              <AccountDetails />
+            )}
+            {activePage === 'orderDetails' && (
+              <OrderDetails />
             )}
 
           </div>
