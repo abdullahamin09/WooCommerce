@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import Cart from './components/Cart'
 import SingleProduct from './pages/SingleProduct'
 import LostPassword from './components/LostPassword'
+import CheckOut from './pages/CheckOut'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route path='/shop' element={<Shop />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/singleproduct' element={<SingleProduct />} />
+            <Route path='/checkOut' element={<CheckOut />} />
         </Routes>
         <Footer />
     </BrowserRouter>

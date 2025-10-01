@@ -1,5 +1,4 @@
 import Card from '../components/Card';
-import FeaturedCategory from '../components/FeaturedCategory';
 import SingleProductCard from '../components/SingleProductCard';
 
 const SingleProduct = () => {
@@ -7,8 +6,7 @@ const SingleProduct = () => {
 
     return (
         <div>
-            <FeaturedCategory Features = 'Featured Category Title' Details='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore .' />
-            <FeaturedCategory Features = 'Featured Product Title' Details='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore .'/>
+            
             <SingleProductCard />
             <div className="relatedProducts my-[60px] xl:mx-[100px] md:mx-[60px] sm:mx-[20px]">
                 <p className='text-[30px]/[42px] mb-[20px] font-bold'>Related products</p>

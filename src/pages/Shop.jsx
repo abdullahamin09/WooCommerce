@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Card from '../components/Card'
 import { Icon } from '@iconify/react'
 import { Pagination, Dropdown, Button } from 'antd';
@@ -61,10 +61,10 @@ const Shop = () => {
   ];
 
   return (
-    <div className='shop xl:mx-[80px] lg:mx-[100px] md:mx-[80px] 2xl:mx-[120px]'>
+    <div className='shop mx-[30px] xl:mx-[80px] lg:mx-[100px] md:mx-[80px] 2xl:mx-[120px]'>
       <div className="flex justify-between items-center">
-      <p className='text-[48px]/[66px] font-bold mb-5'>Shop</p>
-      <Icon onClick={() => setActiveFilter(!activeFilter)} className='cursor-pointer' icon="mage:filter-fill" width="30" height="30" style={{ color: '#000'}} />
+        <p className='text-[48px]/[66px] font-bold mb-5'>Shop</p>
+        <Icon onClick={() => setActiveFilter(!activeFilter)} className='cursor-pointer' icon="mage:filter-fill" width="30" height="30" style={{ color: '#000' }} />
       </div>
       <div className={` ${activeFilter ? 'flex' : 'flex-none'} `}>
         <div className="activeFilter">
@@ -77,7 +77,7 @@ const Shop = () => {
         </div>
         <div className="productShop">
           <div className=" ">
-            <div className='flex justify-between items-center'>
+            <div className='flex justify-between max-sm:flex-col items-center'>
               <p className='text-[20px]/[30px] font-medium '>Showing 1-16 of 44 results</p>
               <div className='dropdown-button'>
                 <Dropdown menu={{ items }} trigger={['click']} placement="bottom">
@@ -91,10 +91,10 @@ const Shop = () => {
             </div>
           </div>
           {/* {` ${activeFilter ? 'flex' : 'flex-none'} `} */}
-          <div className={`Card-wrap place-items-center  grid sm:grid-cols-2 2xl:grid-cols-4 grid-cols-1 gap-5 my-10 ${activeFilter ? 'xl:grid-cols-2 lg:grid-cols-2 gap-20' : 'xl:grid-cols-4 lg:grid-cols-3'}`}>
+          <div className={`Card-wrap place-items-center  grid sm:grid-cols-2 2xl:grid-cols-5 grid-cols-1 gap-5 my-10 ${activeFilter ? 'xl:grid-cols-2 lg:grid-cols-2 gap-20' : 'xl:grid-cols-4 lg:grid-cols-3'}`}>
 
             {products.map((product) => (
-              <Card className={`w-[224px] ${activeFilter ? 'xl:w-[224px]' : 'xl:w-[285px]'}`}
+              <Card className={`w-[224px] ${activeFilter ? 'xl:max-w-[224px]' : 'xl:max-w-[285px]'}`}
                 key={product.id}
                 Ptitle={product.title}
                 Pprice={product.price}
@@ -103,12 +103,9 @@ const Shop = () => {
               />
             ))}
           </div>
-          <div className="flex justify-between items-center gap-5 mb-10">
-            <button className='flex gap-1 text-[20px]/[20px] font-bold text-[#2F8EFF] cursor-pointer'>
-              <Icon icon="si:arrow-left-duotone" width="20" height="20" />
-              Previous
-            </button>
-            <div className="shop-card-pagination">
+          <div className="flex relative flex-col justify-center items-center gap-5 mb-10">
+
+            <div className="shop-card-pagination z-10">
               <Pagination
                 defaultCurrent={2}
                 total={90}
@@ -118,10 +115,16 @@ const Shop = () => {
               />
 
             </div>
-            <button className='flex gap-1 text-[20px]/[20px] font-bold text-[#2F8EFF] cursor-pointer'>
-              Next
-              <Icon icon="si:arrow-right-duotone" width="20" height="20" />
-            </button>
+            <div className="buttons flex w-full md:absolute justify-between">
+              <button className='flex gap-1 text-[20px]/[20px] font-bold text-[#2F8EFF] cursor-pointer'>
+                <Icon icon="si:arrow-left-duotone" width="20" height="20" />
+                Previous
+              </button>
+              <button className='flex gap-1 text-[20px]/[20px] font-bold text-[#2F8EFF] cursor-pointer'>
+                Next
+                <Icon icon="si:arrow-right-duotone" width="20" height="20" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

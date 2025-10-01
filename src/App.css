@@ -99,8 +99,8 @@ th {
     color: black;
 }
 
-.myAccDets .cart-wrap .table tr,
-th {
+.details .myAccDets tr,
+.details .myAccDets th {
     border: none;
 }
 
@@ -142,6 +142,7 @@ th {
 
 .orderDetails .orderDetailsAddress .address{
     gap: 8px;
+    
 }
 
 .orderDetails .orderDetailsAddress .address .addressDetailsPTags{

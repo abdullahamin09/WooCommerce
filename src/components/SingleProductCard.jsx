@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Rate } from "antd";
 import { Icon } from '@iconify/react'
 import userImg from '../assets/images/userImg.png'
+import { Link } from 'react-router-dom';
 
 const SingleProductCard = () => {
     const [activeSection, setActiveSection] = useState('description')
@@ -9,11 +10,11 @@ const SingleProductCard = () => {
     return (
         <div className="singleProduct bg-[#eeeeee] px-[90px] ">
             <div className='w-full flex justify-center max-sm:items-center max-lg:flex-col gap-[50px] pt-[86px]'>
-                <div className="singleProductLeft ">
-                    <div className="img-wrap w-[580px] h-[580px] bg-black flex justify-center items-center">
+                <div className="singleProductLeft flex-1">
+                    <div className="img-wrap max-w-[580px] h-[580px] bg-black flex justify-center items-center">
                         <img src="/images/card_logo.png" alt="" />
                     </div>
-                    <div className="small-img-wrap grid grid-cols-4 gap-[1px] mt-[1px] w-[580px]">
+                    <div className="small-img-wrap grid grid-cols-4 gap-[1px] mt-[1px] max-w-[580px]">
                         <div className="active h-[142px] bg-black flex justify-center items-center">
                             <img src="/images/card_logo.png" alt="" />
                         </div>
@@ -42,8 +43,10 @@ const SingleProductCard = () => {
                         Lorem ipsum dolor sit amet, sed ut graece tibique definitionem. Nec ex legere quodsi interesset, alii dictas referrentur duo cu. Ex quas docendi vis. At sit iudico tation primis, eos an modus maluisset persecuti, ut eos hinc aperiri referrentur. Mel ei brute nullam, ut porro invidunt sit.
                     </p>
                     <div className="addBasket flex gap-[10px] mb-[40px]">
-                        <input className="w-[79px] h-[50px] border-[2px] border-[#000000] font-bold text-center focus:outline-none" type="number" name="quantity" id="" />
+                        <input defaultValue={1} className="w-[79px] h-[50px] border-[2px] border-[#000000] font-bold text-center focus:outline-none" type="number" name="quantity" id="" />
+                        <Link to='/cart'>
                         <button className="bg-[#2F8EFF] text-[20px]/[30px] text-white h-[50px] w-[250px] cursor-pointer">Add to basket</button>
+                        </Link>
                     </div>
                     <div className="firstPayment bg-[#FFFFFF] border-[2px] border-[#20D902] h-[64px] max-w-[580px] text-[16px]/[24px] font-medium mb-[40px] flex items-center gap-[10px]">
                         <p className='pl-[20px]'>First Payment: <span className='font-bold'>November 1, 2018</span></p>

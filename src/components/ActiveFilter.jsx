@@ -58,15 +58,15 @@ const ActiveFilter = () => {
       <div className="flex flex-col w-full text-[16px]/[24px] font-medium">
         <p className="text-[30px]/[42px] font-bold mb-[20px]">Filter by stock status</p>
         <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="inStock" id="" />
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="inStock" id="inStock" />
           <label className="w-fit" htmlFor="inStock">In stock</label>
         </div>
         <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="onBackOrder" id="" />
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="onBackOrder" id="onBackOrder" />
           <label className="w-fit" htmlFor="onBackOrder">On back order</label>
         </div>
         <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="outOfStock" id="" />
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="outOfStock" id="outOfStock" />
           <label className="w-fit" htmlFor="outOfStock">Out of stock</label>
         </div>
         <div className="flex justify-end">
@@ -76,15 +76,15 @@ const ActiveFilter = () => {
       <div className="flex flex-col w-full text-[16px]/[24px] font-medium">
         <p className="text-[30px]/[42px] font-bold mb-[20px]">Filter by attribute</p>
         <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="1Site" id="" />
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="1Site" id="1Site" />
           <label className="w-fit" htmlFor="1Site">1 site</label>
         </div>
         <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="10Sites" id="" />
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="10Sites" id="10Sites" />
           <label className="w-fit" htmlFor="10Sites">10 sites</label>
         </div>
         <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="outOfStock" id="" />
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="outOfStock" id="5Sites" />
           <label className="w-fit" htmlFor="5Sites">5 sites</label>
         </div>
         <div className="flex justify-end">
@@ -94,24 +94,24 @@ const ActiveFilter = () => {
       <div className="flex flex-col w-full gap-[20px] mb-[20px]">
         <p>Filter by rating</p>
         <div className="flex gap-[12px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R5" id="" />
-          <label className="w-fit" htmlFor="R5"><Rate value={5} /></label>
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R5" id="R5" />
+          <label className="w-fit" htmlFor="R5"><Rate value={5} disabled/></label>
         </div>
         <div className="flex gap-[12px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R4" id="" />
-          <label className="w-fit" htmlFor="R4"><Rate value={4} /></label>
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R4" id="R4" />
+          <label className="w-fit" htmlFor="R4"><Rate value={4} disabled/></label>
         </div>
         <div className="flex gap-[12px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R3" id="" />
-          <label className="w-fit" htmlFor="R3"><Rate value={3} /></label>
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R3" id="R3" />
+          <label className="w-fit" htmlFor="R3"><Rate value={3} disabled/></label>
         </div>
         <div className="flex gap-[12px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R2" id="" />
-          <label className="w-fit" htmlFor="R2"><Rate value={2} /></label>
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R2" id="R2" />
+          <label className="w-fit" htmlFor="R2"><Rate value={2} disabled/></label>
         </div>
         <div className="flex gap-[12px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R1" id="" />
-          <label className="w-fit" htmlFor="R1"><Rate value={1} /></label>
+          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R1" id="R1" />
+          <label className="w-fit" htmlFor="R1"><Rate value={1} disabled/></label>
         </div>
         <div className="flex justify-end">
           <button className="text-[#FF0000]">Reset</button>
