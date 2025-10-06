@@ -6,12 +6,14 @@ const SingleProduct = () => {
 
 
     return (
-        <div className='mx-auto'>
+        <div className=''>
 
             <div className='bg-[#eeeeee]'>
-            <SingleProductCard />
-            <Review />
-                
+                <div className="mx-[20px]">
+                    <SingleProductCard />
+                </div>
+                <Review />
+
             </div>
             <div className="relatedProducts my-[60px] xl:mx-[100px] md:mx-[60px] mx-[30px] max-sm:flex flex-col max-sm:items-center">
                 <p className='text-[30px]/[42px] mb-[20px] font-bold w-fit'>Related products</p>
