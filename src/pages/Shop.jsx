@@ -78,14 +78,16 @@ const Shop = () => {
 
   return (
     <div className='shop mx-[30px] xl:mx-[80px] lg:mx-[100px] md:mx-[80px] 2xl:mx-[120px] mt-10'>
-      {activeSearch ? (true &&
+      <div className="max-md:hidden">
+        {activeSearch ? (true &&
         <SearchButton />
       ) : ''}
+      </div>
 
       <div className="flex justify-between items-center">
         <p className='text-[48px]/[66px] font-bold mb-5'>Shop</p>
         <div className='flex gap-[20px]'>
-          <button>
+          <button className='max-md:hidden'>
             <Icon onClick={() => setActiveSearch(!activeSearch)} className='cursor-pointer' icon="material-symbols:search-rounded" width="30" height="30" />
           </button>
           <Icon onClick={() => setActiveFilter(!activeFilter)} className='cursor-pointer' icon="mage:filter-fill" width="30" height="30" style={{ color: '#000' }} />
