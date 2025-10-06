@@ -8,9 +8,9 @@ const SingleProduct = () => {
     return (
         <div className='mx-auto'>
 
+            <div className='bg-[#eeeeee]'>
             <SingleProductCard />
             <Review />
-            <div>
                 
             </div>
             <div className="relatedProducts my-[60px] xl:mx-[100px] md:mx-[60px] mx-[30px] max-sm:flex flex-col max-sm:items-center">
