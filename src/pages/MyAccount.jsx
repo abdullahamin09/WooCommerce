@@ -1,142 +1,114 @@
-import { Table } from "antd"
 import DownloadSMyAccount from "../components/DownloadSMyAccount";
 import AddressMyAcc from "../components/AddressMyAcc";
-import { useState } from "react";
 import EditAddress from "./EditAddress";
 import AccountDetails from "./AccountDetails";
 import OrderDetails from "../components/OrderDetails";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
+import MyAccDashboard from "../components/MyAccDashboard";
+import MyAccOrder from "../components/MyAccOrder";
 
 const MyAccount = () => {
-  const [activePage, setActivePage] = useState("dashboard")
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const getPageTitle = () => {
+    if (currentPath === '/myaccount/' || currentPath === '/myaccount') return 'My Account';
+    if (currentPath.startsWith('/myaccount/order')) return 'My Account - Orders';
+    if (currentPath.startsWith('/myaccount/orderlorderlist')) return 'My Account - Order #972';
+    if (currentPath.startsWith('/myaccount/downloads')) return 'My Account - Downloads';
+    if (currentPath.startsWith('/myaccount/editaddress')) return 'My Account - Addresses';
+    if (currentPath.startsWith('/myaccount/billing')) return 'My Account - Billing Address';
+    if (currentPath.startsWith('/myaccount/shipping')) return 'My Account - Shipping Address';
+    if (currentPath.startsWith('/myaccount/accountdetails')) return 'My Account - Account Details';
+    return 'My Account';
+  };
 
-  const columns = [
-    { title: 'order', dataIndex: 'order', key: 'order' },
-    { title: 'date', dataIndex: 'date', key: 'date' },
-    { title: 'status', dataIndex: 'status', key: 'status' },
-    { title: 'total', dataIndex: 'total', key: 'total' },
-    {
-      title: 'Action',
-      dataIndex: '',
-      key: 'x',
-      render: () => <button
-      onClick={() => setActivePage('orderDetails')}
-        className="w-[117px] h-[44px] bg-[#2F8EFF] text-white"
-      >View</button>,
-    },
-  ];
-  const data = [
-    {
-      key: 1,
-      order: '#972',
-      date: '9 May 2023',
-      status: 'Cancelled',
-      total: 'R2030,00 for 20 items',
-    },
-    {
-      key: 2,
-      order: '#973',
-      date: '9 May 2023',
-      status: 'Cancelled',
-      total: 'R2030,00 for 20 items',
-    },
-    {
-      key: 3,
-      order: '#675',
-      date: '9 May 2023',
-      status: 'Cancelled',
-      total: 'R2030,00 for 20 items',
-    },
-    {
-      key: 4,
-      order: '#678',
-      date: '9 May 2023',
-      status: 'Cancelled',
-      total: 'R2030,00 for 20 items',
-    },
+  const getPageLinks = () => {
+    if (currentPath === '/myaccount/' || currentPath === '/myaccount') {
+      return (
+        <>
+          <p className='underline'>Home</p>
+          <span className='text-[#9B9B9B] pl-[2px] pr-[4px]'>/</span>
+          <p className='text-[#9B9B9B]'>My Account</p>
+        </>
+      );
+    }
 
-  ];
+    let subPage = '';
+    if (currentPath.startsWith('/myaccount/order')) subPage = 'Orders';
+    else if (currentPath.startsWith('/myaccount/order/orderlist')) subPage = 'Orders';
+    else if (currentPath.startsWith('/myaccount/downloads')) subPage = 'Downloads';
+    else if (currentPath.startsWith('/myaccount/editaddress')) subPage = 'edit-address';
+    else if (currentPath.startsWith('/myaccount/shipping')) subPage = 'edit-address';
+    else if (currentPath.startsWith('/myaccount/billing')) subPage = 'edit-address';
+    else if (currentPath.startsWith('/myaccount/accountdetails')) subPage = 'Account Details';
 
+    return (
+      <>
+        <Link to='/' className='underline'>Home</Link>
+        <span className='text-[#9B9B9B] px-[4px]'>/</span>
+        <Link to='/myaccount' className='underline'>My Account</Link>
+        <span className='text-[#9B9B9B] px-[4px]'>/</span>
+        <p className='text-[#9B9B9B]'>{subPage}</p>
+      </>
+    );
+  };
 
   return (
-    <div className=' mx-[120px]'>
-      <div className='text-[12px]/[18px] font-medium flex mb-[10px]'>
+    <div className=' mx-[120px] mt-10'>
+      {/* <div className='text-[12px]/[18px] font-medium flex mb-[10px]'>
         <p className='underline'>Home</p><span className='text-[#9B9B9B] pl-[2px] pr-[4px]'>/</span><p className='text-[#9B9B9B]'>My Account</p>
+      </div> */}
+      <div className='text-[12px]/[18px] font-medium flex mb-[10px]'>
+        {getPageLinks()}
       </div>
-      <h1 className='text-[48px]/[66px] font-bold mb-[30px]'>My Account</h1>
+      <h1 className='text-[48px]/[66px] font-bold mb-[30px]'>{getPageTitle()}</h1>
       <div className="flex gap-[20px] mb-[60px]">
         <div className="sidebar">
           <ul className='text-[20px]/[30px] font-bold'>
             <li
-              className={`h-[78px] w-[285px] border-[1px] border-[#000000] flex items-center pl-[30px] ${activePage === 'dashboard' ? 'bg-[#000000] text-[white]' : ''}`}
-              onClick={() => setActivePage('dashboard')} >
-              Dashboard</li>
+              className={`h-[78px] w-[285px] border-[1px] border-[#000000] pl-[30px] ${(currentPath === '/myaccount/') || (currentPath === '/myaccount') ? 'bg-[#000000] text-[white]' : ''}`}
+            >
+              <Link to='/myaccount/' className="w-full h-full flex items-center">Dashboard</Link>
+            </li>
             <li
-              className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${activePage === 'order' ? 'bg-[#000000] text-[white]' : ''}`}
-              onClick={() => setActivePage('order')} >
-              Order</li>
+              className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${currentPath.startsWith('/myaccount/order') ? 'bg-[#000000] text-[white]' : ''}`}
+            >
+              <Link to='/myaccount/order' className="w-full h-full flex items-center">Order</Link>
+            </li>
             <li
-              className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${activePage === 'downloads' ? 'bg-[#000000] text-[white]' : ''}`}
-              onClick={() => setActivePage('downloads')} >
-              Downloads</li>
+              className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${currentPath.startsWith('/myaccount/downloads') ? 'bg-[#000000] text-[white]' : ''}`}
+            >
+              <Link to='/myaccount/downloads' className="w-full h-full flex items-center">Downloads</Link>
+            </li>
             <li
-              className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${activePage === 'editAddress' ? 'bg-[#000000] text-[white]' : ''}`}
-              onClick={() => setActivePage('editAddress')} >
-              Edit address</li>
+              className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${(currentPath.startsWith('/myaccount/editaddress')) || (currentPath.startsWith('/myaccount/shipping')) || (currentPath.startsWith('/myaccount/billing')) ? 'bg-[#000000] text-[white]' : ''}`}
+            >
+              <Link to='/myaccount/editaddress' className="w-full h-full flex items-center">Edit address</Link>
+            </li>
             <li
-              className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${activePage === 'accountDetails' ? 'bg-[#000000] text-[white]' : ''}`}
-              onClick={() => setActivePage('accountDetails')} >
-              Account details</li>
+              className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${currentPath.startsWith('/myaccount/accountdetails') ? 'bg-[#000000] text-[white]' : ''}`}
+            >
+              <Link to='/myaccount/accountdetails' className="w-full h-full flex items-center">Account details</Link>
+            </li>
             <li
-              className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${activePage === 'logout' ? 'bg-[#000000] text-[white]' : ''}`}
-              onClick={() => setActivePage('logout')} >
-              Logout</li>
+              className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${currentPath.startsWith('/logout') ? 'bg-[#000000] text-[white]' : ''}`}
+            >
+              <Link to='/login' className="w-full h-full flex items-center">Logout</Link>
+            </li>
           </ul>
         </div>
         <div className="details w-full">
           <div className="myAccDets">
-            {activePage === 'dashboard' && (
-              <div>
-                <div className="text-[20px]/[30px] font-bold bg-[#F7F6F7] p-[30px] border-[2px] border-[#2F8EFF]">
-                  <p>Hello lightspeed (not lightspeed? <span className='text-[#2F8EFF] underline'>Log Out</span>)</p>
-                  <p>From your account dashboard you can view your <span className='text-[#2F8EFF] underline'>recent orders</span>, manage your <span className='text-[#2F8EFF] underline'>shipping and billing addresses</span>, and <span className='text-[#2F8EFF] underline'>edit your password and account details</span>.</p>
-                </div>
-                <div className="flex justify-between text-[20px]/[30px] font-bold bg-[#F7F6F7] p-[30px] border-[2px] border-[#2F8EFF]">
-                  <div className='flex gap-[10px] items-center'>
-                    <div className='w-[20px] h-[20px] bg-[#D9D9D9] border border-[#D9D9D9] rounded-[100%] '></div>
-                    <p className='font-medium'>No order has been made yet.</p>
-                  </div>
-                  <button className='underline text-[#2F8EFF]'>Browse products</button>
-                </div>
-              </div>
-            )}
-            {activePage === 'order' && (
-              <div className="order my-[30px]">
-                <Table
-                  columns={columns}
-                  dataSource={data}
-                  pagination={false}
-                />
-              </div>
-            )}
-            {activePage === 'downloads' && (
-              <DownloadSMyAccount />
-
-            )}
-            {activePage === 'editAddress' && (
-              <AddressMyAcc onAction={setActivePage} />
-            )}
-            {activePage === 'editBillingingAddress' && (
-              <EditAddress EditAddressProp='Billing' />
-            )}
-            {activePage === 'editShippingAddress' && (
-              <EditAddress EditAddressProp='Shipping' />
-            )}
-            {activePage === 'accountDetails' && (
-              <AccountDetails />
-            )}
-            {activePage === 'orderDetails' && (
-              <OrderDetails />
-            )}
+            <Routes>
+              <Route exact path='/' element={<MyAccDashboard />} />
+              <Route path='/order' element={<MyAccOrder />} />
+              <Route path='/order/orderlist' element={<OrderDetails />} />
+              <Route path='/downloads' element={<DownloadSMyAccount />} />
+              <Route path='/editaddress/' element={<AddressMyAcc />} />
+              <Route path='/billing' element={<EditAddress EditAddressProp='Billing' />} />
+              <Route path='/shipping' element={<EditAddress EditAddressProp='Shipping' />} />
+              <Route path='/accountdetails' element={<AccountDetails />} />
+            </Routes>
 
           </div>
         </div>

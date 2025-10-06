@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const EditAddress = ({EditAddressProp}) => {
     return (
@@ -49,7 +49,7 @@ const EditAddress = ({EditAddressProp}) => {
                 <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">Email <span className="text-[#FF0000]">*</span></label>
                 <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="email" name="email" id="" />
             </div>
-            <button className='bg-[#2F8EFF] text-white w-[192px] h-[44px] text-[20px]/[30px]' type="submit">Save address</button>
+            <button className='saveAddressBtn bg-[#2F8EFF] text-white w-[192px] h-[44px] text-[20px]/[30px]' type="submit">Save address</button>
         </form>
     )
 }

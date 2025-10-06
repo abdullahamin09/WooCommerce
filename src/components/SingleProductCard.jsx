@@ -44,7 +44,7 @@ const SingleProductCard = () => {
                     </p>
                     <div className="addBasket flex gap-[10px] mb-[40px]">
                         <input defaultValue={1} className="w-[79px] h-[50px] border-[2px] border-[#000000] font-bold text-center focus:outline-none" type="number" name="quantity" id="" />
-                        <Link to='/cart'>
+                        <Link to='/basket'>
                         <button className="bg-[#2F8EFF] text-[20px]/[30px] text-white h-[50px] w-[250px] cursor-pointer">Add to basket</button>
                         </Link>
                     </div>

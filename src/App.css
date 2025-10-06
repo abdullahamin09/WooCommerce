@@ -136,16 +136,68 @@ th {
 }
 
 
-.orderDetails .orderDetailsAddress .addressPTag, .orderDetails .orderDetailsAddress .editButton {
+.orderDetails .orderDetailsAddress .addressPTag,
+.orderDetails .orderDetailsAddress .editButton {
     display: none;
 }
 
-.orderDetails .orderDetailsAddress .address{
+.orderDetails .orderDetailsAddress .address {
     gap: 8px;
-    
+
 }
 
-.orderDetails .orderDetailsAddress .address .addressDetailsPTags{
-padding: 20px;
-border: 1px solid #EEEEEE;
+.orderDetails .orderDetailsAddress .address .addressDetailsPTags {
+    padding: 20px;
+    border: 1px solid #EEEEEE;
+}
+.orderDetails .orderDetailsAddress .address .billingAddress div:first-child,
+.orderDetails .orderDetailsAddress .address .shippingAddress div:first-child {
+    gap: 0;
+}
+
+.checkoutBilling .billing .saveAddressBtn {
+    display: none;
+}
+
+.checkoutConfirmed .orderList .ant-table-thead>tr>th,
+.checkoutConfirmed .orderList .ant-table-tbody>tr>td {
+    background-color: #fff !important;
+    border: none !important;
+}
+
+.checkoutConfirmed .checkoutorderDetails .ant-table-thead>tr>th,
+.checkoutConfirmed .checkoutorderDetails .ant-table-tbody>tr>td {
+    background-color: #fff !important;
+    border-bottom: 2px solid #000;
+    border-radius: 0% !important;
+}
+
+.checkoutConfirmed .checkoutorderDetails .ant-table-thead>tr:last-child>th,
+.checkoutConfirmed .checkoutorderDetails .ant-table-tbody>tr:last-child>td {
+    border-right: 0 solid #000;
+    border-bottom: 0 solid #000;
+}
+
+.checkoutConfirmed .checkoutorderDetails .ant-table-thead>tr>th::before {
+    display: none;
+}
+
+.checkoutConfirmed .checkoutorderDetails .ant-table-thead>tr>th {
+    background-color: #50575E !important;
+    color: #fff;
+    border-width: 2px 2px 2px 0px !important;
+    border-style: solid !important;
+    border-color: #000 !important;
+}
+
+.checkoutorderDetails table {
+    border-radius: 0%;
+    border-width: 0px 2px medium !important;
+    border-color: #000 #000 currentColor !important;
+}
+
+.checkoutConfirmed .checkOutAddress .orderDetailsAddress .addressPTag,
+.checkoutConfirmed .checkOutAddress .orderDetailsAddress .editButton,
+.checkoutConfirmed .checkOutAddress .orderDetailsAddress .address .shippingAddress {
+    display: none;
 }

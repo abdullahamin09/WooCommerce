@@ -4,13 +4,12 @@ import { Icon } from '@iconify/react'
 import { Pagination, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import ActiveFilter from '../components/ActiveFilter';
+import SearchButton from '../components/SearchButton';
 
 const Shop = () => {
   const [selected, setSelected] = useState("By Relevance");
   const [activeFilter, setActiveFilter] = useState(false);
-  const onChange = (page) => {
-    console.log("Current Page:", page);
-  };
+  const [activeSearch, setActiveSearch] = useState(false);
 
   const products = [
     { id: 1, title: "Product Title", rating: 5, price: 19.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
@@ -29,7 +28,24 @@ const Shop = () => {
     { id: 14, title: "Product Title", rating: 2, price: 42.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 15, title: "Product Title", rating: 4, price: 55.75, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 16, title: "Product Title", rating: 5, price: 99.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 17, title: "Product Title", rating: 5, price: 99.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 18, title: "Product Title", rating: 5, price: 99.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 19, title: "Product Title", rating: 5, price: 99.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 20, title: "Product Title", rating: 5, price: 99.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 21, title: "Product Title", rating: 5, price: 99.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
   ];
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 16;
+  const indexOfLastProduct = currentPage * pageSize;
+  const indexOfFirstProduct = indexOfLastProduct - pageSize;
+  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const onChange = (page, pageSize) => {
+    console.log("Current Page:", page);
+    console.log("Page size:", pageSize);
+    setCurrentPage(page);
+  };
 
 
   const items = [
@@ -61,10 +77,19 @@ const Shop = () => {
   ];
 
   return (
-    <div className='shop mx-[30px] xl:mx-[80px] lg:mx-[100px] md:mx-[80px] 2xl:mx-[120px]'>
+    <div className='shop mx-[30px] xl:mx-[80px] lg:mx-[100px] md:mx-[80px] 2xl:mx-[120px] mt-10'>
+      {activeSearch ? (true &&
+        <SearchButton />
+      ) : ''}
+
       <div className="flex justify-between items-center">
         <p className='text-[48px]/[66px] font-bold mb-5'>Shop</p>
-        <Icon onClick={() => setActiveFilter(!activeFilter)} className='cursor-pointer' icon="mage:filter-fill" width="30" height="30" style={{ color: '#000' }} />
+        <div className='flex gap-[20px]'>
+          <button>
+            <Icon onClick={() => setActiveSearch(!activeSearch)} className='cursor-pointer' icon="material-symbols:search-rounded" width="30" height="30" />
+          </button>
+          <Icon onClick={() => setActiveFilter(!activeFilter)} className='cursor-pointer' icon="mage:filter-fill" width="30" height="30" style={{ color: '#000' }} />
+        </div>
       </div>
       <div className={` ${activeFilter ? 'flex' : 'flex-none'} `}>
         <div className="activeFilter">
@@ -93,7 +118,7 @@ const Shop = () => {
           {/* {` ${activeFilter ? 'flex' : 'flex-none'} `} */}
           <div className={`Card-wrap place-items-center  grid sm:grid-cols-2 2xl:grid-cols-5 grid-cols-1 gap-5 my-10 ${activeFilter ? 'xl:grid-cols-2 lg:grid-cols-2 gap-20' : 'xl:grid-cols-4 lg:grid-cols-3'}`}>
 
-            {products.map((product) => (
+            {currentProducts.map((product) => (
               <Card className={`w-[224px] ${activeFilter ? 'xl:max-w-[224px]' : 'xl:max-w-[285px]'}`}
                 key={product.id}
                 Ptitle={product.title}
@@ -107,9 +132,9 @@ const Shop = () => {
 
             <div className="shop-card-pagination z-10">
               <Pagination
-                defaultCurrent={2}
-                total={90}
-                pageSize={16}
+                defaultCurrent={1}
+                total={products.length}
+                pageSize={pageSize}
                 onChange={onChange}
                 showSizeChanger={false}
               />

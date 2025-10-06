@@ -5,7 +5,7 @@ const SingleProduct = () => {
     
 
     return (
-        <div>
+        <div className=''>
             
             <SingleProductCard />
             <div className="relatedProducts my-[60px] xl:mx-[100px] md:mx-[60px] sm:mx-[20px]">

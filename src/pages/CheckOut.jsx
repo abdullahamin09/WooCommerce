@@ -1,11 +1,12 @@
-
+import { Icon } from "@iconify/react"
+import { Link } from "react-router-dom"
 
 const CheckOut = () => {
     return (
-        <div className="checkOut mx-[50px]">
+        <div className="checkOut mx-[50px]  mt-10">
             <p className="text-[48px]/[66px] font-bold mb-[30px]">Checkout</p>
-            <div className="flex">
-                <div className="left">
+            <div className="flex flex-col md:flex-row gap-[20px]">
+                <div className="left lg:w-[60%]">
                     <div className="contactInfo flex flex-col gap-[20px] mb-[30px]">
                         <p className="text-[24px]/[34px] font-bold ">1. Contact information</p>
                         <p className="text-[16px]/[16px] font-medium pl-[24px]">Already have an account? <span className="text-[#2F8EFF]">Log in.</span></p>
@@ -23,19 +24,19 @@ const CheckOut = () => {
                         <p className="text-[24px]/[34px] font-bold mb-[31px]">2. Shipping address</p>
                         <div className="shippingWrap flex flex-col gap-[24px] border-l-[1px] border-[#B4B7C1] pl-[18px] ml-[6px]">
                             <p className="text-[20px]/[30px] font-medium ">Enter the address where you want your order delivered.</p>
-                            <div className="flex gap-[24px]">
-                                <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="First name" type="text" name="firstName" id="" />
-                                <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Last name" type="text" name="lastName" id="" />
+                            <div className="flex max-sm:flex-col gap-[24px]">
+                                <input className="pl-[10px] w-full h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="First name" type="text" name="firstName" id="" />
+                                <input className="pl-[10px] w-full h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Last name" type="text" name="lastName" id="" />
                             </div>
                             <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Address" type="text" name="address1" id="" />
                             <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Apartment, suite, etc. (optional)" type="text" name="address2" id="" />
-                            <div className="flex gap-[24px]">
-                                <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Country/Region" type="text" name="country" id="" />
-                                <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="City" type="text" name="city" id="" />
+                            <div className="flex max-sm:flex-col gap-[24px]">
+                                <input className="pl-[10px] w-full h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Country/Region" type="text" name="country" id="" />
+                                <input className="pl-[10px] w-full h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="City" type="text" name="city" id="" />
                             </div>
-                            <div className="flex gap-[24px]">
-                                <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Province" type="text" name="province" id="" />
-                                <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Postal Code" type="number" name="postalCode" id="" />
+                            <div className="flex max-sm:flex-col gap-[24px]">
+                                <input className="pl-[10px] w-full h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Province" type="text" name="province" id="" />
+                                <input className="pl-[10px] w-full h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Postal Code" type="number" name="postalCode" id="" />
                             </div>
                             <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" placeholder="Phone (optional)" type="number" name="phoneNumber" id="" />
                             <div className="flex items-start gap-[12px] mb-[10px]">
@@ -90,11 +91,80 @@ const CheckOut = () => {
                         <p className="text-[20px]/[30px] font-medium pl-[30px]">By proceeding with your purchase you agree to our <span className="text-[#2F8EFF] font-medium underline">Terms and Conditions </span> and <span className="text-[#2F8EFF] font-medium underline">Privacy Policy</span></p>
                     </div>
                     <div className="buttons w-full my-[30px] gap-[40px] grid grid-cols-2 max-sm:grid-cols-1 text-[24px]/[34px] font-bold">
-                        <button className="px-[66px] h-[75px] border-[2px] border-[#000000]">Return to Basket</button>
-                        <button className="text-[#FFFFFF] px-[66px] h-[75px] bg-[#FF7A00]">Place Order</button>
+                        <button className="px-auto h-[75px] flex justify-center items-center gap-[8px] border-[2px] border-[#000000]">
+                            <Icon icon="lineicons:arrow-left" width="16" height="16" />
+                            <span>Return to Basket</span>
+                        </button>
+                            <Link to = '/checkoutbilling' className="text-[#FFFFFF] flex justify-center items-center h-[75px] bg-[#FF7A00]">Place Order</Link>
                     </div>
 
 
+                </div>
+                <div className="right lg:w-[40%]">
+                    <div className="max-w-[500px] mx-auto">
+                        <div className="product flex gap-[20px]  pt-[22px] mb-[32px] border-t-[1px] border-[#B4B7C1]">
+                            <div className="img relative">
+                                <div className="imgwrap w-[53px] h-[50px] bg-[#000000]">
+                                    <img className="w-full h-full object-contain" src="./images/card_logo.png" alt="" />
+                                </div>
+                                <div className="absolute flex justify-center items-center w-[31px] h-[29px] rounded-full bg-white  right-[-15px] top-[-14px]">
+                                    <div className="border-[2px] bg-white rounded-full flex justify-center items-center border-[#000000] w-[27px] h-[25px]">
+                                        1
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="text-[16px]/[24px] flex flex-col  font-medium">
+                                <div className="flex justify-between font-bold">
+                                    <p>LSX Mega Menus</p>
+                                    <p>R100,00</p>
+                                </div>
+                                <p>R100,00</p>
+                                <p>Display beautiful banners on your LSX WordPress site with the LSX Banners extension, which offers…</p>
+                            </div>
+                        </div>
+                        <div className="product flex gap-[20px]  pt-[22px] mb-[32px] border-t-[1px] border-[#B4B7C1]">
+                            <div className="img relative">
+                                <div className="imgwrap w-[53px] h-[50px] bg-[#000000]">
+                                    <img className="w-full h-full object-contain" src="./images/card_logo.png" alt="" />
+                                </div>
+                                <div className="absolute flex justify-center items-center w-[31px] h-[29px] rounded-full bg-white  right-[-15px] top-[-14px]">
+                                    <div className="border-[2px] bg-white rounded-full flex justify-center items-center border-[#000000] w-[27px] h-[25px]">
+                                        1
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="text-[16px]/[24px] flex flex-col  font-medium">
+                                <div className="flex justify-between font-bold">
+                                    <p>LSX Mega Menus</p>
+                                    <p>R50,00</p>
+                                </div>
+                                <p><span className="line-through pr-[6px]">R100,00</span>R50,00</p>
+                                <p>Display beautiful banners on your LSX WordPress site with the LSX Banners extension, which offers…</p>
+                            </div>
+                        </div>
+                        <div className="text-[20px]/[30px] font-medium">
+                            <div className="couponWrap flex text-[#2F8EFF] font-bold pt-[22px] mb-[22px] border-t-[1px] border-[#B4B7C1]">
+                                <p>Add a coupon</p>
+                            </div>
+                            <div className="Subtotal flex justify-between pt-[22px] mb-[22px] border-t-[1px] border-[#B4B7C1]">
+                                <p>Subtotal</p>
+                                <p className="text-[20px]/[35px] font-bold">R150,00</p>
+                            </div>
+                            <div className="pt-[22px] mb-[30px] border-t-[1px] border-[#B4B7C1]">
+                                <div className="flex justify-between mb-[5px]">
+                                    <p>Shipping</p>
+                                    <p className="text-[20px]/[35px] font-bold">R50,00</p>
+                                </div>
+                                <p className="text-[12px]/[15px] mb-[28px]">Flat rate</p>
+                                <p className="text-[16px]/[24px]">Shipping to 7925, Cape Town, Western Cape, South Africa</p>
+                            </div>
+                            <div className="flex justify-between pt-[22px] mb-[22px] border-t-[1px] border-[#B4B7C1]">
+                                <p className="text-[28px]/[40px] font-bold">Total</p>
+                                <p className="text-[28px]/[40px] font-bold">R200,00</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
