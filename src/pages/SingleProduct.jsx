@@ -1,6 +1,6 @@
-import Card from '../components/Card';
-import Review from '../components/Review';
-import SingleProductCard from '../components/SingleProductCard';
+import Card from '../components/Cards/Card';
+import ProductReview from '../components/ProductReview';
+import SingleProductCard from '../components/Cards/SingleProductCard';
 
 const SingleProduct = () => {
 
@@ -12,7 +12,7 @@ const SingleProduct = () => {
                 <div className="mx-[20px]">
                     <SingleProductCard />
                 </div>
-                <Review />
+                <ProductReview />
 
             </div>
             <div className="relatedProducts my-[60px] xl:mx-[100px] md:mx-[60px] mx-[30px] max-sm:flex flex-col max-sm:items-center">

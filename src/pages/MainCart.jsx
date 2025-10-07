@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import CartProductCard from '../components/CartProductCard'
-import Card from '../components/Card'
+import CartProductCard from '../components/Cards/CartProductCard'
+import Card from '../components/Cards/Card'
 
 const MainCart = () => {
     const products = [

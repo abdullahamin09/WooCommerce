@@ -1,7 +1,9 @@
 import { Icon } from "@iconify/react"
 import cartImage from "../assets/images/cartImage.png"
-import Card from './Card'
+import Card from './Cards/Card'
 import { Link } from "react-router-dom"
+import Button from "./Shared/Button"
+
 const Cart = () => {
   return (
     <div className='cart-wrap lg:mx-[120px] mx-[30px] md:mx-[60px]'>
@@ -71,11 +73,17 @@ const Cart = () => {
                       <p>Coupon:</p>
                       <input className="w-[145px] pl-1 h-[44px] font-bold focus:outline-none uppercase" type="text" name="coupon" id="" />
                     </div>
-                    <button className="bg-[#2F8EFF] text-[16px]/[24px] font-bold text-white h-[44px] w-[126px] cursor-pointer">Apply coupon</button>
+                    <Button
+                      content='Apply coupon'
+                      btnClass='!h-[44px] !w-[126px] !text-[16px]/[24px]'
+                    />
                   </div>
                 </td>
                 <td>
-                  <button className="bg-[#2F8EFF] text-[20px]/[30px] text-white h-[70px] w-[181px] cursor-pointer">Update basket</button>
+                  <Button
+                    content='Update basket'
+                    btnClass='!!h-[70px] !w-[181px] !text-[20px]/[30px]'
+                  />
                 </td>
               </tr>
             </tbody>
@@ -90,9 +98,9 @@ const Cart = () => {
             <Card />
           </div>
         </div>
-        <div className="basket-total w-full md:w-[70%] lg:w-[55%]">
+        <div className="basket-total w-full md:w-[70%] lg:w-[55%] space-y-6">
           <p className="text-[24px]/[34px] font-bold">Basket Total</p>
-          <table className="Subtotal border-[2px] border-[#000000] w-full text-left text-[20px]/[30px] mt-[20px]">
+          <table className="Subtotal border-[2px] border-[#000000] w-full text-left text-[20px]/[30px]">
             <thead>
               <tr className="h-[62px] border-b-[2px] border-[#000000]">
                 <td className="font-bold pl-[17px]">Subtotal</td>
@@ -131,7 +139,10 @@ const Cart = () => {
           </table>
           <div className="checkOutButton">
             <Link to='/checkOut'>
-              <button className="bg-[#FF7A00] text-[24px]/[34px] font-bold text-white h-[94px] w-full max-sm:w-[390px] mt-[20px] cursor-pointer">Proceed to checkout</button>
+             <Button
+                content='Proceed to checkout'
+                btnClass='!h-[94px] !bg-[#FF7A00]'
+              />
             </Link>
           </div>
         </div>

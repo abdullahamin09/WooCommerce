@@ -1,4 +1,4 @@
-import Card from '../components/Card';
+import Card from '../components/Cards/Card';
 import FeaturedCategory from '../components/FeaturedCategory'
 import Shop from './Shop'
 

@@ -1,5 +1,7 @@
-import { Icon } from "@iconify/react";
 import { Table } from "antd"
+import { Link } from "react-router-dom";
+import Button from "./Shared/Button";
+
 
 const DownloadSMyAccount = () => {
     const columns = [
@@ -11,10 +13,13 @@ const DownloadSMyAccount = () => {
             title: 'Action',
             dataIndex: '',
             key: 'x',
-            render: () => <button className="w-[152px] h-[42px] bg-[#2F8EFF] text-white flex items-center justify-center gap-[10px] cursor-pointer">
-                Download
-                <Icon icon="fa-solid:download" width="20" height="20" style={{ color: '#fff' }} />
-            </button>,
+            render: () => <Link>
+                <Button
+                    content='Download'
+                    iconProp = 'fa-solid:download'
+                    btnClass="!w-[152px] !h-[42px] !gap-[10px] !text-[16px]/[24px]"
+                />
+            </Link>,
         },
 
     ];

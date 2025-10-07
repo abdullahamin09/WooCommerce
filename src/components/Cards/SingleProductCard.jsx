@@ -1,6 +1,7 @@
 import { Rate } from "antd";
 import { Icon } from '@iconify/react'
 import { Link } from 'react-router-dom';
+import Button from "../Shared/Button"
 
 const SingleProductCard = () => {
     return (
@@ -41,7 +42,10 @@ const SingleProductCard = () => {
                     <div className="addBasket flex gap-[10px] mb-[40px]">
                         <input defaultValue={1} className="w-[79px] h-[50px] border-[2px] border-[#000000] font-bold text-center focus:outline-none" type="number" name="quantity" id="" />
                         <Link to='/basket'>
-                        <button className="bg-[#2F8EFF] text-[20px]/[30px] text-white h-[50px] w-[250px] cursor-pointer">Add to basket</button>
+                            <Button
+                                content='Add to basket'
+                                btnClass='!h-[50px] !w-[250px] !text-[20px]/[30px]'
+                            />
                         </Link>
                     </div>
                     <div className="firstPayment bg-[#FFFFFF] border-[2px] border-[#20D902] h-[64px] max-w-[580px] text-[16px]/[24px] font-medium mb-[40px] flex items-center gap-[10px]">

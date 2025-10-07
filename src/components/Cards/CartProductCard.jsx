@@ -18,7 +18,7 @@ const CartProductCard = ({ Title, Rating, Price, DiscountPrice, Discount, Lisenc
                             )}
                         </div>
                         <div className="flex flex-row gap-2 text-[16px]/[24px]">
-                            <span className={` ${DiscountPrice ? "line-through font-medium" : "font-bold"} `} >{Price}</span>
+                            <span className={` ${DiscountPrice ? "line-through font-medium" : "font-bold"} `} >R{Price}</span>
                             {DiscountPrice && (
                                 <span className="font-bold">R{DiscountPrice}</span>
                             )}

@@ -1,29 +1,40 @@
 import { Icon } from '@iconify/react'
-import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from './Shared/Button'
+import Input from './Shared/Input'
 
-const LoginAndRegister = () => {
+const Auth = () => {
     return (
-        <div className="login-register lg:mx-[120px] mx-[30px] md:mx-[80px] mt-10">
+        <div className="login-register mx-auto mt-10">
             <div className='flex'>
                 <div className="login w-[540px] mx-auto my-20 flex flex-col gap-8 px-[30px] py-[20px] border-[2px] borer-black">
                     <p className='text-[48px]/[66px] font-bold'>Login</p>
                     <form action="" className="login-form gap-[20px] flex flex-col">
-                        <div className="flex flex-col">
-                            <label className='text-[16px]/[24px] font-medium' htmlFor="email">Email address <span className="text-[#FF0000]">*</span></label>
-                            <input className='w-full border-[2px] h-[55.5px]' type="email" name="email" id="" />
-                        </div>
-                        <div className="flex flex-col">
-                            <label className='text-[16px]/[24px] font-medium' htmlFor="password">Password <span className="text-[#FF0000]">*</span></label>
-                            <input className='w-full border-[2px] h-[55.5px]' type="password" name="password" id="" />
-                        </div>
+                        <Input
+                            Label="Email address"
+                            HtmlFor="loginEmail"
+                            important
+                            textsize="[16px]/[24px]"
+                            type="email"
+                        />
+                        <Input
+                            Label="Password"
+                            HtmlFor="loginPassword"
+                            important
+                            textsize="[16px]/[24px]"
+                            type="password"
+                        />
                         <div className="button-wrap grid grid-cols-2 max-md:grid-cols-1 gap-2 items-center">
                             <Link to='/myaccount'>
-                                <button className='bg-sky-500 hover:not-focus:bg-sky-600 w-[299.5px] h-[60px] text-white cursor-pointer' type="">Log in</button>
+                                <Button
+                                    content='Login '
+                                    btnClass='!w-[298px]'
+                                    btnType="submit"
+                                />
                             </Link>
                             <div className="flex items-center gap-1 md:justify-end">
-                                <input id="remember-me" type="checkbox" />
-                                <label htmlFor="remember-me">Remember me</label>
+                                <input className='cursor-pointer' id="remember-me" type="checkbox" />
+                                <label className='cursor-pointer' htmlFor="remember-me">Remember me</label>
                             </div>
                             <div className='font-bold text-sky-500'>
                                 <Link to="/forgetpassword">Lost your password?</Link>
@@ -34,16 +45,25 @@ const LoginAndRegister = () => {
                 <div className="register w-[540px] mx-auto my-20 flex flex-col gap-8 px-[30px] py-[20px] border-[2px] borer-black">
                     <p className='text-[48px]/[66px] font-bold'>Register</p>
                     <form action="" className="register-form gap-[20px] flex flex-col">
-                        <div className="flex flex-col">
-                            <label className='text-[16px]/[24px] font-medium' htmlFor="email">Email address <span className="text-[#FF0000]">*</span></label>
-                            <input className='w-full border-[2px] h-[55.5px]' type="email" name="email" id="" />
-                        </div>
-                        <div className="flex flex-col">
-                            <label className='text-[16px]/[24px] font-medium' htmlFor="password">Password <span className="text-[#FF0000]">*</span></label>
-                            <input className='w-full border-[2px] h-[55.5px]' type="password" name="password" id="" />
-                        </div>
+                        <Input
+                            Label="Email address"
+                            HtmlFor="registerEmail"
+                            important
+                            textsize="[16px]/[24px]"
+                            type="email"
+                        />
+                        <Input
+                            Label="Password"
+                            HtmlFor="registerPassword"
+                            important
+                            textsize="[16px]/[24px]"
+                            type="password"
+                        />
                         <div className="button-wrap  ">
-                            <button className='bg-sky-500 hover:not-focus:bg-sky-600 w-full h-[60px] text-white cursor-pointer' type="">Register</button>
+                            <Button
+                                content='Register'
+                                btnType="submit"
+                            />
 
                         </div>
                     </form>
@@ -85,4 +105,4 @@ const LoginAndRegister = () => {
     )
 }
 
-export default LoginAndRegister
+export default Auth

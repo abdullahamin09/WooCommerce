@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react"
 import { Link } from "react-router-dom"
+import Button from "../components/Shared/Button"
 
 const CheckOut = () => {
     return (
@@ -91,11 +92,19 @@ const CheckOut = () => {
                         <p className="text-[20px]/[30px] font-medium pl-[30px]">By proceeding with your purchase you agree to our <span className="text-[#2F8EFF] font-medium underline">Terms and Conditions </span> and <span className="text-[#2F8EFF] font-medium underline">Privacy Policy</span></p>
                     </div>
                     <div className="buttons w-full my-[30px] gap-[40px] grid grid-cols-2 max-sm:grid-cols-1 text-[24px]/[34px] font-bold">
-                        <button className="px-auto h-[75px] flex justify-center items-center gap-[8px] border-[2px] border-[#000000]">
-                            <Icon icon="lineicons:arrow-left" width="16" height="16" />
-                            <span>Return to Basket</span>
-                        </button>
-                            <Link to = '/checkoutbilling' className="text-[#FFFFFF] flex justify-center items-center h-[75px] bg-[#FF7A00]">Place Order</Link>
+                        <Link to='/checkOut'>
+                            <Button
+                                content='Return to Basket'
+                                btnClass='!h-[75px] border-[2px] border-[#000000] !bg-[#fff] !text-black !flex-row-reverse gap-[8px]'
+                                iconProp='lineicons:arrow-left'
+                            />
+                        </Link>
+                        <Link to='/checkoutbilling'>
+                            <Button
+                                content='Place Order'
+                                btnClass='!h-[75px] !bg-[#FF7A00]'
+                            />
+                        </Link>
                     </div>
 
 

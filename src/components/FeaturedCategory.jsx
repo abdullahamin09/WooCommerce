@@ -1,3 +1,4 @@
+import Button from "./Shared/Button"
 
 
 const FeaturedCategory = ({ Features, Details }) => {
@@ -10,7 +11,11 @@ const FeaturedCategory = ({ Features, Details }) => {
                     <span className="font-bold">R150,00 – R400,00</span>
                     <span className="font-medium">incl VAT </span>
                 </p>
-                <button className="text-[24px]/[34px] font-bold w-[250px] h-[60px] lg:w-[285px] bg-[#2F8EFF] cursor-pointer">Read more</button>
+                {/* <button className="text-[24px]/[34px] font-bold w-[250px] h-[60px] lg:w-[285px] bg-[#2F8EFF] cursor-pointer">Read more</button> */}
+                <Button
+                    content='Read more'
+                    btnClass='!w-[250px]'
+                />
             </div>
         </div>
     )

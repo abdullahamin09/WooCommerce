@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Card from '../components/Card'
+import Card from '../components/Cards/Card'
 import { Icon } from '@iconify/react'
 import { Pagination, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
@@ -16,18 +16,18 @@ const Shop = () => {
     { id: 2, title: "Product Title", rating: 4, price: 25.50, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 3, title: "Product Title", rating: 3, price: 15.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 4, title: "Product Title", rating: 2, price: 49.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
-    { id: 5, title: "Product Title", rating: 1, price: 9.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
-    { id: 6, title: "Product Title", rating: 4, price: 35.75, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
-    { id: 7, title: "Product Title", rating: 5, price: 89.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
-    { id: 8, title: "Product Title", rating: 3, price: 22.10, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 5, title: "Product Title", rating: 1, price: 9.99, discountPrice: 15.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 6, title: "Product Title", rating: 4, price: 35.75, discountPrice: 15.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 7, title: "Product Title", rating: 5, price: 89.00, discountPrice: 15.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 8, title: "Product Title", rating: 3, price: 22.10, discountPrice: 15.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 9, title: "Product Title", rating: 2, price: 12.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 10, title: "Product Title", rating: 4, price: 65.40, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 11, title: "Product Title", rating: 5, price: 120.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 12, title: "Product Title", rating: 1, price: 8.50, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
-    { id: 13, title: "Product Title", rating: 3, price: 18.25, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
-    { id: 14, title: "Product Title", rating: 2, price: 42.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
-    { id: 15, title: "Product Title", rating: 4, price: 55.75, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
-    { id: 16, title: "Product Title", rating: 5, price: 99.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 13, title: "Product Title", rating: 3, price: 18.25, discountPrice: 15.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 14, title: "Product Title", rating: 2, price: 42.00, discountPrice: 15.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 15, title: "Product Title", rating: 4, price: 55.75, discountPrice: 15.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
+    { id: 16, title: "Product Title", rating: 5, price: 99.99, discountPrice: 15.00, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 17, title: "Product Title", rating: 5, price: 99.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 18, title: "Product Title", rating: 5, price: 99.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
     { id: 19, title: "Product Title", rating: 5, price: 99.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
@@ -80,8 +80,8 @@ const Shop = () => {
     <div className='shop mx-[30px] xl:mx-[80px] lg:mx-[100px] md:mx-[80px] 2xl:mx-[120px] mt-10'>
       <div className="max-md:hidden">
         {activeSearch ? (true &&
-        <SearchButton />
-      ) : ''}
+          <SearchButton />
+        ) : ''}
       </div>
 
       <div className="flex justify-between items-center">
@@ -127,6 +127,7 @@ const Shop = () => {
                 Pprice={product.price}
                 Prating={product.rating}
                 Pdetails={product.details}
+                discountPrice={product.discountPrice}
               />
             ))}
           </div>

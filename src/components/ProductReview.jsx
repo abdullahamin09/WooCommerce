@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Rate } from "antd";
 import userImg from '../assets/images/userImg.png'
+import Button from "./Shared/Button"
+import Input from './Shared/Input'
 
-const Review = () => {
+const ProductReview = () => {
     const [activeSection, setActiveSection] = useState('description')
-    const [ratingValue, setRatingValue] = useState(3);
+    const [ratingValue, setRatingValue] = useState(5);
     return (
         <div>
             <div className="product-details my-[94px] mx-[20px]">
@@ -17,7 +19,7 @@ const Review = () => {
                     </button>
                     <button
                         className={` bg-[#FFFFFF] w-[178px] cursor-pointer h-[50px] border-b-[4px] ${activeSection === 'additionalDetails' ? 'border-[#2F8EFF]' : 'border-transparent'} `}
-                    onClick={() => setActiveSection('additionalDetails')}
+                        onClick={() => setActiveSection('additionalDetails')}
                     >
                         Additional Details
                     </button>
@@ -44,17 +46,16 @@ const Review = () => {
                             </div>
                             <div className="userReview md:w-[640px] w-[350px]  flex justify-center gap-[20px] mb-[40px] border-b-[1px] border-[#B4B7C1] pb-[30px]">
                                 <div className="userImg h-[50px] shrink-0 w-[50px] bg-black">
-                                    <img className='w-full h-full'src={userImg} alt="" />
+                                    <img className='w-full h-full' src={userImg} alt="" />
                                 </div>
                                 <div className="reviewText">
                                     <div className='text-[16px]/[24px] text-[#9B9B9B] font-medium flex justify-between items-start max-md:flex-col gap-[20px] mb-[20px] md:gap-[10px] md:mb-[10px]'>
-                                        <p>lightspeed <span className='text-[#000000]'>(verified owner)</span> <br className='md:hidden'/><span className='max-md:hidden'> – </span>9 May 2023</p>
+                                        <p>lightspeed <span className='text-[#000000]'>(verified owner)</span> <br className='md:hidden' /><span className='max-md:hidden'> – </span>9 May 2023</p>
                                         <Rate value={3} disabled />
                                     </div>
                                     <p className='lg:w-[562px] text-[20px]/[30px] font-medium'>The LSX Tour Operator plugin is a comprehensive WordPress plugin designed specifically for tour operators and travel agencies. As a language model, I cannot provide personal opinion or experience with the product, but I can give you an overview of the plugin based on its features and user feedback.</p>
                                 </div>
                             </div>
-
                             <div className='flex flex-col justify-center md:w-[640px] w-[350px]'>
                                 <div className='font-medium mb-[30px]'>
                                     <p className='text-[24px]/[34px]'>Add a review</p>
@@ -66,26 +67,37 @@ const Review = () => {
                                         onChange={setRatingValue}
                                         value={ratingValue} />
                                 </div>
-                                <form className="text-[20px]/[30px] font-medium flex flex-col">
+                                <form className="text-[20px]/[30px] font-medium flex flex-col mb-[40px]">
                                     <div className='mb-[30px]'>
                                         <label htmlFor='yourReview'>Your Review <span className='text-[#FF0000]'>*</span></label><br />
-                                        <textarea className='w-full h-[155px] bg-[#FFFFFF] border-[2px] px-[1px] border-[#2B2D2F] outline-none' id="yourReview" name="yourReview" />
+                                        <textarea className='w-full h-[155px] bg-[#FFFFFF] border-[2px] px-[1px] border-[#2B2D2F] outline-none resize-none' id="yourReview" name="yourReview" />
                                     </div>
                                     <div className="name flex max-md:flex-col gap-[26px] mb-[40px]">
-                                        <div className='flex-1'>
-                                            <label htmlFor="">First Name <span className='text-[#FF0000]'>*</span></label><br />
-                                            <input className='w-full h-[55px] bg-[#FFFFFF] border-[2px] border-[#2B2D2F] px-[1px] outline-none' type="text" name="firstName" id="" />
-                                        </div>
-                                        <div className='flex-1'>
-                                            <label htmlFor="">Last Name <span className='text-[#FF0000]'>*</span></label><br />
-                                            <input className='w-full h-[55px] bg-[#FFFFFF] border-[2px] border-[#2B2D2F] px-[1px] outline-none' type="text" name="lastName" id="" />
-                                        </div>
+                                        <Input
+                                            Label="First Name"
+                                            HtmlFor="firstName"
+                                            important
+                                            textsize="[16px]/[24px]"
+                                            type="text"
+                                            inputClass='flex-1'
+                                        />
+                                        <Input
+                                            Label="Last Name"
+                                            HtmlFor="lastName"
+                                            important
+                                            textsize="[16px]/[24px]"
+                                            type="text"
+                                            inputClass='flex-1'
+                                        />
                                     </div>
                                     <div className='mb-[40px] flex items-start'>
                                         <input className='mt-[6px] w-[16px] h-[18px] ' type="checkbox" name="savInfo" id="savInfo" />
                                         <label className='w-[612px] pl-[12px]' htmlFor="savInfo">Save my name, email, and website in this browser for the next time I comment.</label>
                                     </div>
-                                    <button className='text-white w-[111px] h-[57px] bg-[#2F8EFF] hover:bg-[#2F8EFF]-800 font-medium focus:outline-none dark:focus:ring-blue-800 mb-[50px] cursor-pointer' type="submit">Submit</button>
+                                    <Button
+                                        content='Submit'
+                                        btnClass='!h-[57px] !w-[111px] !text-[20px]/[30px]'
+                                    />
                                 </form>
                             </div>
                         </div>
@@ -96,4 +108,4 @@ const Review = () => {
     )
 }
 
-export default Review
+export default ProductReview

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
 import EditAddress from "./EditAddress"
+import Button from "../components/Shared/Button"
+
 const CheckoutBilling = () => {
   return (
     <div className="mx-[100px] checkoutBilling">
@@ -103,7 +105,12 @@ const CheckoutBilling = () => {
             <label className="w-fit cursor-pointer" htmlFor="termsAndConditions">I have read and agree to the website <span className="text-[#2F8EFF] underline">terms and conditions</span></label>
           </div>
           <div className="flex justify-end">
-            <Link to='/checkoutconfirmed' className="text-[#FFFFFF] flex justify-center items-center w-[300px] h-[75px] bg-[#FF7A00]">Place Order</Link>
+           <Link to='/checkoutconfirmed'>
+              <Button
+                content='Place Order'
+                btnClass='!h-[75px] !w-[300px] !bg-[#FF7A00]'
+              />
+            </Link>
           </div>
         </div>
       </div>

@@ -1,56 +1,94 @@
+import Button from "../components/Shared/Button"
+import Input from "../components/Shared/Input"
 
 
-const EditAddress = ({EditAddressProp}) => {
+const EditAddress = ({ EditAddressProp }) => {
     return (
         <form className='editAddress flex flex-col gap-[29px] mb-[88px]'>
             <p className='text-[30px]/[42px] font-bold'>{EditAddressProp} Address</p>
             <div className="flex gap-[24px]">
-                <div className="flex flex-col flex-1">
-                    <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">First Name <span className="text-[#FF0000]">*</span></label>
-                    <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="text" name="firstName" id="" />
-                </div>
-                <div className="flex flex-col flex-1">
-                    <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">Last Name <span className="text-[#FF0000]">*</span></label>
-                    <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="text" name="lastName" id="" />
-                </div>
+                <Input
+                    Label="First Name"
+                    HtmlFor="firstName"
+                    important
+                    type="text"
+                    mb='[20px]'
+                    inputClass='flex-1'
+                />
+                <Input
+                    Label="Last Name"
+                    HtmlFor="lastName"
+                    important
+                    type="text"
+                    mb='[20px]'
+                    inputClass='flex-1'
+                />
             </div>
-            <div className="flex flex-col">
-                <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">Company Name (optional)</label>
-                <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="text" name="companyName" id="" />
-            </div>
+            <Input
+                Label="Company Name (optional)"
+                HtmlFor="companyName"
+                type="text"
+                mb='[20px]'
+            />
             <div className="flex flex-col gap-[24px]">
-                <div className="flex flex-col">
-                    <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">Country / Region <span className="text-[#FF0000]">*</span></label>
-                    <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="text" name="companyName" id="" />
-                </div>
-                <div className="flex flex-col">
-                    <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">Street Address <span className="text-[#FF0000]">*</span></label>
-                    <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none mb-[22px]" type="text" name="streetAddress1" id="" />
-                    <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="text" name="streetAddress2" id="" />
-                </div>
-                <div className="flex flex-col">
-                    <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">Town / City <span className="text-[#FF0000]">*</span></label>
-                    <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="text" name="cityAddress" id="" />
-                </div>
-                <div className="flex flex-col">
-                    <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">Province <span className="text-[#FF0000]">*</span></label>
-                    <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="text" name="province" id="" />
-                </div>
-                <div className="flex flex-col">
-                    <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">Postcode / ZIP <span className="text-[#FF0000]">*</span></label>
-                    <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="number" name="postcode" id="" />
-                </div>
+                <Input
+                    Label="Country / Region"
+                    HtmlFor="country"
+                    type="text"
+                    important
+                    mb='[20px]'
+                />
+                <Input
+                    Label="Street Address"
+                    HtmlFor="streetAddress1"
+                    type="text"
+                    important
+                    mb='[20px]'
+                />
+                <input className="h-[56px] text-[20px]/[30px] px-[10px] border-[2px] border-black focus:outline-none" type="text" name="streetAddress2" id="streetAddress2" />
+                <Input
+                    Label="Town / City"
+                    HtmlFor="cityAddress"
+                    type="text"
+                    important
+                    mb='[20px]'
+                />
+                <Input
+                    Label="Province"
+                    HtmlFor="province"
+                    type="text"
+                    important
+                    mb='[20px]'
+                />
+                <Input
+                    Label="Postcode / ZIP"
+                    HtmlFor="Postcode"
+                    type="number"
+                    important
+                    mb='[20px]'
+                />
             </div>
-            <div className="flex flex-col">
-                <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">Phone <span className="text-[#FF0000]">*</span></label>
-                <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="number" name="phone" id="" />
-            </div>
-            <div className="flex flex-col">
-                <label className="text-[20px]/[30px] font-medium mb-[20px]" htmlFor="email">Email <span className="text-[#FF0000]">*</span></label>
-                <input className="pl-[10px] h-[56px] text-[20px]/[30px] px-[2px] border-[2px] border-black focus:outline-none" type="email" name="email" id="" />
-            </div>
-            <button className='saveAddressBtn bg-[#2F8EFF] text-white w-[192px] h-[44px] text-[20px]/[30px]' type="submit">Save address</button>
-        </form>
+            <Input
+                Label="Phone"
+                HtmlFor="phone"
+                type="number"
+                important
+                mb='[20px]'
+            />
+            <Input
+                Label="Email"
+                HtmlFor="email"
+                type="email"
+                important
+                mb='[20px]'
+            />
+            <Button
+                content='Save address'
+                btnClass='!w-[192px] !h-[44px] !text-[16px]/[24px]'
+                btnType='submit'
+            />
+            
+        </form >
     )
 }
 

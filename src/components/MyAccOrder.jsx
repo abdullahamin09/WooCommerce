@@ -1,5 +1,6 @@
 import { Table } from "antd"
 import { Link } from "react-router-dom";
+import Button from "./Shared/Button";
 
 const MyAccOrder = () => {
     const columns = [
@@ -12,10 +13,11 @@ const MyAccOrder = () => {
             dataIndex: '',
             key: 'x',
             render: () => <Link to='orderlist'>
-                <button
+                <Button
                     onClick={() => setActivePage('orderDetails')}
-                    className="w-[117px] h-[44px] bg-[#2F8EFF] text-white cursor-pointer"
-                >View</button>
+                    content='View'
+                    btnClass="!w-[117px] !text-[16px]/[24px] !h-[44px]"
+                 />
             </Link>,
         },
     ];

@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react"
 
-const LostPassword = () => {
+const ResetPassword = () => {
     return (
         <div>
             <div className="w-[580px] mx-auto my-[80px] flex flex-col gap-[20px] px-[30px] p-[20px] border-[2px] borer-black">
@@ -43,4 +43,4 @@ const LostPassword = () => {
     )
 }
 
-export default LostPassword
+export default ResetPassword

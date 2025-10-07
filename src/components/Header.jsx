@@ -58,19 +58,19 @@ const Header = () => {
             </Button>
           </li>
           <li className="pl-[30px] md:pl-0 max-md:h-[50px] py-auto">
-            <Link to="/shop" className="hover:text-[blue] hover:underline transition-colors duration-300">Shop</Link>
+            <Link to="/shop" className="hover:text-[blue] transition-colors duration-300">Shop</Link>
           </li>
           <li className="pl-[30px] md:pl-0 max-md:h-[50px]">
-            <Link to="/services" className="hover:text-[blue] hover:underline transition-colors duration-300">Services</Link>
+            <Link to="/services" className="hover:text-[blue] transition-colors duration-300">Services</Link>
           </li>
           <li className="pl-[30px] md:pl-0 max-md:h-[50px]">
-            <a href="#" className="hover:text-[blue] hover:underline transition-colors duration-300">FAQ</a>
+            <a href="#" className="hover:text-[blue] transition-colors duration-300">FAQ</a>
           </li>
           <li className="pl-[30px] md:pl-0 max-md:h-[50px]">
-            <a href="#" className="hover:text-[blue] hover:underline transition-colors duration-300">About</a>
+            <a href="#" className="hover:text-[blue] transition-colors duration-300">About</a>
           </li>
           <li className="pl-[30px] md:pl-0 max-md:h-[50px]">
-            <a href="" className="hover:text-[blue] hover:underline transition-colors duration-300">Contact</a>
+            <a href="" className="hover:text-[blue] transition-colors duration-300">Contact</a>
           </li>
         </ul>
         <div className="flex justify-between items-center space-x-4">
