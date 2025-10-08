@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import img1 from "../assets/images/account.png";
-import img2 from "../assets/images/cart.png";
+import cartImg from "../assets/images/cart.png";
+import darkCartImg from "../assets/images/DarkCart.png";
+import accImg from "../assets/images/account.png";
+import darkAccImg from "../assets/images/DarkAcc.png";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { SearchOutlined } from '@ant-design/icons';
@@ -38,11 +40,12 @@ const Header = () => {
   // };
 
   return (
-    <nav className="shadow-lg/20 w-full">
-      <div className=" relative container-fluid md:container mx-auto flex items-center justify-between h-[80px] lg:h-[100px] px-6 text-[20px]/[30px] font-medium navbarWrap bg-white dark:bg-black text-black dark:text-white md:space-x-6">
+    <nav className="shadow-lg/20 w-full bg-white dark:bg-black">
+      <div className=" relative container-fluid md:container mx-auto flex items-center justify-between h-[80px] lg:h-[100px] px-6 text-[20px]/[30px] font-medium navbarWrap text-black dark:text-white md:space-x-6">
         <div className="logo-wrap w-[166px] h-[71px] flex items-center">
           <Link to='/home'>
-            <img className='w-full h-full'src={"/images/Logo.png"} alt="Logo" />
+            <img className='w-full h-full dark:hidden' src={"/images/Logo.png"} alt="Logo" />
+            <img className='w-full h-full hidden dark:block' src={"/images/DarkLogo.png"} alt="Logo" />
           </Link>
         </div>
         <ul
@@ -76,10 +79,12 @@ const Header = () => {
         <div className="flex justify-between items-center space-x-4">
           <p className="font-bold">R100,00</p>
           <Link to="/cart" className="cart-wrap w-[42px]">
-            <img className="w-full hover:scale-110 transition-transform duration-300" src={img2} alt="account" />
+            <img className="w-full hover:scale-110 transition-transform duration-300 dark:hidden" src={cartImg} alt="cart" />
+            <img className="w-full hover:scale-110 transition-transform duration-300 hidden dark:block" src={darkCartImg} alt="cart" />
           </Link>
           <Link to="/login" className="accWrap [29px]">
-            <img className="w-full hover:scale-110 transition-transform duration-300" src={img1} alt="cart" />
+            <img className="w-full hover:scale-110 transition-transform duration-300 dark:hidden" src={accImg} alt="account" />
+            <img className="w-full hover:scale-110 transition-transform duration-300 hidden dark:block" src={darkAccImg} alt="account" />
           </Link>
           <div className="button md:hidden flex items-center justify-center w-[36px] h-[32px] border-[2px] border-black">
             <button
@@ -88,13 +93,13 @@ const Header = () => {
             >
               {isMenuOpen ? "X" : "☰"}
             </button>
+          </div>
             {/* <button
               onClick={toggleDarkMode}
               className="ml-4 px-3 py-1 border rounded dark:border-white border-black"
-              >
+            >
               {darkMode ? "Light Mode" : "Dark Mode"}
-              </button> */}
-          </div>
+            </button> */}
         </div>
 
       </div>

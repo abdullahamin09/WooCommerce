@@ -5,7 +5,7 @@ import Button from './Shared/Button';
 const Footer = () => {
   return (
     <footer className='footer-wrap flex-col justtify-center bg-black'>
-      <div className='footer-top text-white flex flex-col lg:flex-row px-[30px] xl:px-[122px] py-[77px]'>
+      <div className='footer-top text-white flex flex-col lg:flex-row px-[30px] xl:px-[120px] py-[77px] gap-[40px]'>
         <div className="footer-left flex-1 space-y-[34px]">
           <p className='text-[48px]/[66px]'>Get Started with LSX</p>
           <p className='max-w-[616px] text-[20px]/[30px]'>With its clean, minimal design and powerful feature set, LSX theme enables agencies to build stylish and sophisticated WordPress websites.</p>

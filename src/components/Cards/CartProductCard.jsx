@@ -52,6 +52,7 @@ const CartProductCard = ({ Title, Rating, Price, DiscountPrice, Discount, Lisenc
                                     readOnly
                                     className="w-12 text-center  outline-none"
                                 />
+                                
                                 <button
                                     onClick={() => setQ(q + 1)}
                                     className="flex-1 bg-gray-100 text-xl font-bold"

@@ -3,6 +3,7 @@ import { Rate } from "antd";
 import userImg from '../assets/images/userImg.png'
 import Button from "./Shared/Button"
 import Input from './Shared/Input'
+import Checkbox from './Shared/Checkbox';
 
 const ProductReview = () => {
     const [activeSection, setActiveSection] = useState('description')
@@ -90,10 +91,11 @@ const ProductReview = () => {
                                             inputClass='flex-1'
                                         />
                                     </div>
-                                    <div className='mb-[40px] flex items-start'>
-                                        <input className='mt-[6px] w-[16px] h-[18px] ' type="checkbox" name="savInfo" id="savInfo" />
-                                        <label className='w-[612px] pl-[12px]' htmlFor="savInfo">Save my name, email, and website in this browser for the next time I comment.</label>
-                                    </div>
+                                    <Checkbox
+                                        id="savInfo"
+                                        name="savInfo"
+                                        label="Save my name, email, and website in this browser for the next time I comment."
+                                    />
                                     <Button
                                         content='Submit'
                                         btnClass='!h-[57px] !w-[111px] !text-[20px]/[30px]'

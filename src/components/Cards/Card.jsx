@@ -25,7 +25,7 @@ const Card = ({ Ptitle, Pprice, discountPrice, Prating, Pdetails }) => {
                         </div>
                     }
                     <div className="flex flex-row gap-2 text-[20px]/[30px]">
-                        <span className={` ${discountPrice ? "line-through font-normal" : "font-bold"} `} >{Pprice}</span>
+                        <span className={` ${discountPrice ? "line-through font-normal" : "font-bold"} `} >R{Pprice}</span>
                         {discountPrice && (
                             <span className="font-bold">R{discountPrice}</span>
                         )}

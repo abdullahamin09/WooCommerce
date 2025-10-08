@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react'
 import { Link } from 'react-router-dom'
 import Button from './Shared/Button'
 import Input from './Shared/Input'
+import Checkbox from './Shared/Checkbox'
 
 const Auth = () => {
     return (
@@ -32,10 +33,16 @@ const Auth = () => {
                                     btnType="submit"
                                 />
                             </Link>
-                            <div className="flex items-center gap-1 md:justify-end">
+                            {/* <div className="flex items-centermd:justify-end">
                                 <input className='cursor-pointer' id="remember-me" type="checkbox" />
                                 <label className='cursor-pointer' htmlFor="remember-me">Remember me</label>
-                            </div>
+                            </div> */}
+                            <Checkbox
+                                id="rememberMe"
+                                name="rememberMe"
+                                label="Remember me"
+                                checkboxClass = 'md:!justify-end !gap-1 !items-center !font-normal'
+                            />
                             <div className='font-bold text-sky-500'>
                                 <Link to="/forgetpassword">Lost your password?</Link>
                             </div>

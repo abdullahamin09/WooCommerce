@@ -1,15 +1,25 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Card from '../components/Cards/Card'
 import { Icon } from '@iconify/react'
 import { Pagination, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import ActiveFilter from '../components/ActiveFilter';
 import SearchButton from '../components/SearchButton';
+import { Drawer } from 'antd';
 
 const Shop = () => {
   const [selected, setSelected] = useState("By Relevance");
-  const [activeFilter, setActiveFilter] = useState(false);
+  const [open, setOpen] = useState(false);
   const [activeSearch, setActiveSearch] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
 
   const products = [
     { id: 1, title: "Product Title", rating: 5, price: 19.99, details: "Lorem ipsum dolor sit amet consectetur sociis maecenas." },
@@ -77,31 +87,40 @@ const Shop = () => {
   ];
 
   return (
-    <div className='shop mx-[30px] xl:mx-[80px] lg:mx-[100px] md:mx-[80px] 2xl:mx-[120px] mt-10'>
-      <div className="max-md:hidden">
-        {activeSearch ? (true &&
-          <SearchButton />
-        ) : ''}
-      </div>
-
-      <div className="flex justify-between items-center">
-        <p className='text-[48px]/[66px] font-bold mb-5'>Shop</p>
-        <div className='flex gap-[20px]'>
-          <button className='max-md:hidden'>
-            <Icon onClick={() => setActiveSearch(!activeSearch)} className='cursor-pointer' icon="material-symbols:search-rounded" width="30" height="30" />
-          </button>
-          <Icon onClick={() => setActiveFilter(!activeFilter)} className='cursor-pointer' icon="mage:filter-fill" width="30" height="30" style={{ color: '#000' }} />
-        </div>
-      </div>
-      <div className={` ${activeFilter ? 'flex' : 'flex-none'} `}>
+    <div className="relative">
+      <div className='shop mx-[30px] xl:mx-[80px] lg:mx-[100px] md:mx-[80px] 2xl:mx-[120px] mt-10'>
         <div className="activeFilter">
-          {activeFilter ? (true &&
-            <div className={`mr-[60px] 2xl:mr-[120px] top-0 left-0 h-full bg-white transform transition-transform duration-500 ease-in-out
-        ${activeFilter ? "translate-x-0" : "-translate-x-full"}`}>
-              <ActiveFilter />
-            </div>
-          ) : ('')}
+          <Drawer
+            title="Apply Filter"
+            closable={{ 'aria-label': 'Close Button' }}
+            onClose={onClose}
+            width={400}
+            open={open}
+            // styles={{
+            //   header: {
+            //     font-size: 30px; 
+            //   }
+            // }}
+          >
+            <ActiveFilter />
+          </Drawer>
         </div>
+        <div className="max-md:hidden">
+          {activeSearch ? (true &&
+            <SearchButton />
+          ) : ''}
+        </div>
+
+        <div className="flex justify-between items-center">
+          <p className='text-[48px]/[66px] font-bold mb-5'>Shop</p>
+          <div className='flex gap-[20px]'>
+            <button className='max-md:hidden'>
+              <Icon onClick={() => setActiveSearch(!activeSearch)} className='cursor-pointer' icon="material-symbols:search-rounded" width="30" height="30" />
+            </button>
+            <Icon onClick={showDrawer} className='cursor-pointer' icon="mage:filter-fill" width="30" height="30" style={{ color: '#000' }} />
+          </div>
+        </div>
+
         <div className="productShop">
           <div className=" ">
             <div className='flex justify-between max-sm:flex-col items-center'>
@@ -118,10 +137,10 @@ const Shop = () => {
             </div>
           </div>
           {/* {` ${activeFilter ? 'flex' : 'flex-none'} `} */}
-          <div className={`Card-wrap place-items-center  grid sm:grid-cols-2 2xl:grid-cols-5 grid-cols-1 gap-5 my-10 ${activeFilter ? 'xl:grid-cols-2 lg:grid-cols-2 gap-20' : 'xl:grid-cols-4 lg:grid-cols-3'}`}>
+          <div className='Card-wrap place-items-center  grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 grid-cols-1 gap-5 my-10 '>
 
             {currentProducts.map((product) => (
-              <Card className={`w-[224px] ${activeFilter ? 'xl:max-w-[224px]' : 'xl:max-w-[285px]'}`}
+              <Card className='w-[224px]'
                 key={product.id}
                 Ptitle={product.title}
                 Pprice={product.price}

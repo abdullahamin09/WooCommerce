@@ -2,6 +2,7 @@ import { Rate } from "antd";
 import { Icon } from '@iconify/react'
 import { Link } from 'react-router-dom';
 import Button from "../Shared/Button"
+import Input from "../Shared/Input";
 
 const SingleProductCard = () => {
     return (
@@ -40,7 +41,12 @@ const SingleProductCard = () => {
                         Lorem ipsum dolor sit amet, sed ut graece tibique definitionem. Nec ex legere quodsi interesset, alii dictas referrentur duo cu. Ex quas docendi vis. At sit iudico tation primis, eos an modus maluisset persecuti, ut eos hinc aperiri referrentur. Mel ei brute nullam, ut porro invidunt sit.
                     </p>
                     <div className="addBasket flex gap-[10px] mb-[40px]">
-                        <input defaultValue={1} className="w-[79px] h-[50px] border-[2px] border-[#000000] font-bold text-center focus:outline-none" type="number" name="quantity" id="" />
+                        <Input
+                            inputClass='w-[79px] '
+                            inputTagClass='text-center !h-[50px] !bg-transparent'
+                            defaultValue={1}
+                            type='number'
+                        />
                         <Link to='/basket'>
                             <Button
                                 content='Add to basket'

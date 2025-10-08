@@ -53,7 +53,7 @@ const CheckoutConfirmd = () => {
 
     ];
     return (
-        <div className="checkoutConfirmed md:mx-[60px] mx-[30px] lg:mx-[100px] 2xl:mx-[120px]">
+        <div className="checkoutConfirmed md:mx-[60px] mx-[30px] lg:mx-[100px] 2xl:mx-[120px] my-[70px]">
             <p className="text-[48px]/[66px] font-bold mb-[30px] max-md:text-center">Checkout</p>
             <p className="text-[28px]/[40px] font-medium mb-[40px] max-md:text-center">Thank you. Your order has been received.</p>
             <div className="orderList w-full">

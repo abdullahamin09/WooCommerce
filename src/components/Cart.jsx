@@ -3,6 +3,7 @@ import cartImage from "../assets/images/cartImage.png"
 import Card from './Cards/Card'
 import { Link } from "react-router-dom"
 import Button from "./Shared/Button"
+import Input from "./Shared/Input"
 
 const Cart = () => {
   return (
@@ -36,9 +37,12 @@ const Cart = () => {
                 </td>
                 <td className="pl-[20px]">R100,00</td>
                 <td className="pl-[20px]">
-                  <div className="input-wrap ">
-                    <input defaultValue={1} className="w-[73px] h-[55px] border-[2px] border-[#000000] font-bold text-center focus:outline-none" type="number" name="quantity" id="" />
-                  </div>
+                  <Input
+                    inputClass='w-[73px] h-[55px]'
+                    inputTagClass='text-center'
+                    defaultValue='1'
+                    type='number'
+                  />
                 </td>
                 <td className="pl-[20px]">
                   <p>R100,00</p>
@@ -58,9 +62,12 @@ const Cart = () => {
                 </td>
                 <td className="pl-[20px]">R100,00</td>
                 <td className="pl-[20px]">
-                  <div className="input-wrap ">
-                    <input defaultValue={1} className="w-[73px] h-[55px] border-[2px] border-[#000000] font-bold text-center focus:outline-none" type="number" name="quantity" id="" />
-                  </div>
+                  <Input
+                    inputClass='w-[73px] h-[55px]'
+                    inputTagClass='text-center'
+                    defaultValue='1'
+                    type='number'
+                  />
                 </td>
                 <td className="pl-[20px]">
                   <p>R100,00</p>
@@ -71,7 +78,12 @@ const Cart = () => {
                   <div className="coupon flex items-center">
                     <div className="pl-[20px] w-[247px] h-[44px] border-t-[2px] border-b-[2px] border-l-[2px] border-[#000000] flex items-center">
                       <p>Coupon:</p>
-                      <input className="w-[145px] pl-1 h-[44px] font-bold focus:outline-none uppercase" type="text" name="coupon" id="" />
+                      {/* <input className="w-[145px] pl-1 h-[44px] font-bold focus:outline-none uppercase" type="text" name="coupon" id="" /> */}
+                      <Input
+                        inputClass='w-[145px] pl-1'
+                        inputTagClass='!border-none !font-medium !h-full uppercase'
+                        type='text'
+                      />
                     </div>
                     <Button
                       content='Apply coupon'
@@ -112,18 +124,33 @@ const Cart = () => {
                 <td className="font-bold pl-[17px] align-top pt-[20px]">Shipping</td>
                 <td className="shipping-wrap pl-[17px] pt-[20px]">
                   <div className="radio flex flex-col gap-2 mb-2">
-                    <div>
-                      <input type="radio" id="freeShipping" name="shipping" value="value1" />
-                      <label htmlFor="freeShipping" className="ml-[6px]">Free shipping</label>
-                    </div>
-                    <div>
-                      <input type="radio" id="localPickup" name="shipping" value="value2" />
-                      <label htmlFor="localPickup" className="ml-[6px]">Local pickup</label>
-                    </div>
-                    <div>
-                      <input type="radio" id="flatRate" name="shipping" value="value3" />
-                      <label htmlFor="flatRate" className="ml-[6px]">Flat rate: R50,00</label>
-                    </div>
+                    <Input
+                      Label='Free shipping'
+                      Name='shipping'
+                      HtmlFor='freeShipping'
+                      inputClass='!flex-row-reverse justify-end !font-normal'
+                      inputTagClass='!w-[16px] !h-[26px] mr-[6px]'
+                      type='radio'
+                      Value='freeShipping'
+                    />
+                    <Input
+                      Label='Local pickup'
+                      Name='shipping'
+                      HtmlFor='localPickup'
+                      inputClass='!flex-row-reverse justify-end !font-normal'
+                      inputTagClass='!w-[16px] !h-[26px] mr-[6px]'
+                      type='radio'
+                      Value='localPickup'
+                    />
+                    <Input
+                      Label='Flat rate: R50,00'
+                      Name='shipping'
+                      HtmlFor='flatRate'
+                      inputClass='!flex-row-reverse justify-end !font-normal'
+                      inputTagClass='!w-[16px] !h-[26px] mr-[6px]'
+                      type='radio'
+                      Value='flatRate'
+                    />
                   </div>
                   <div className="mb-[20px] mt-[10px]">
                     <p className="mb-[30px]">Shipping to <span>Western Cape</span>.</p>
@@ -139,7 +166,7 @@ const Cart = () => {
           </table>
           <div className="checkOutButton">
             <Link to='/checkOut'>
-             <Button
+              <Button
                 content='Proceed to checkout'
                 btnClass='!h-[94px] !bg-[#FF7A00]'
               />

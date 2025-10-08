@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import CartProductCard from '../components/Cards/CartProductCard'
 import Card from '../components/Cards/Card'
+import Input from '../components/Shared/Input';
+import Button from '../components/Shared/Button';
 
 const MainCart = () => {
     const products = [
@@ -28,7 +30,7 @@ const MainCart = () => {
     ]
     return (
 
-        <div className='mx-[30px] lg:mx-[120px] flex lg:flex-row flex-col  gap-10'>
+        <div className='mx-[30px] lg:mx-[120px] flex lg:flex-row flex-col my-[70px] gap-10'>
             <div className="left w-full lg:w-[60%]">
                 <div className="text-[30px]/[42px] max-lg:hidden font-bold flex flex-row lg:gap-[20px] w-full mb-[30px]">
                     <div className='border-b-[1px] w-full border-[#000000] pb-[12px]'>
@@ -78,18 +80,39 @@ const MainCart = () => {
                             <td className="shipping-wrap pl-[30px] pt-[20px]">
                                 <div className="radio flex flex-col gap-2 mb-2">
                                     <div>
-                                        <input type="radio" id="freeShipping" name="shipping" value="value1" />
-                                        <label className="ml-[6px]" htmlFor="freeShipping">Free shipping</label>
+                                        <Input
+                                            Label='Free shipping'
+                                            HtmlFor="freeShipping"
+                                            Name='shipping'
+                                            type="radio"
+                                            inputTagClass="!w-[13px] !h-[13px] mr-[6px]"
+                                            inputClass="flex-row-reverse justify-end items-center !font-normal"
+                                            Value='freeShipping'
+                                        />
                                         <p className='text-[12px]/[18px] text-[#757575] pl-[20px]'>R0,00</p>
                                     </div>
                                     <div>
-                                        <input type="radio" id="localPickup" name="shipping" value="value2" />
-                                        <label className="ml-[6px]" htmlFor="localPickup">Local pickup</label>
+                                        <Input
+                                            Label='Local pickup'
+                                            HtmlFor="localPickup"
+                                            Name='shipping'
+                                            type="radio"
+                                            inputTagClass="!w-[13px] !h-[13px] mr-[6px]"
+                                            inputClass="flex-row-reverse justify-end items-center !font-normal"
+                                            Value='localPickup'
+                                        />
                                         <p className='text-[12px]/[18px] text-[#757575] pl-[20px]'>R0,00</p>
                                     </div>
                                     <div>
-                                        <input type="radio" id="flatRate" name="shipping" value="value3" />
-                                        <label className="ml-[6px]" htmlFor="flatRate">Flat rate: R50,00</label>
+                                        <Input
+                                            Label='Flat rate: R50,00'
+                                            HtmlFor="flatRate"
+                                            Name='shipping'
+                                            type="radio"
+                                            inputTagClass="!w-[13px] !h-[13px] mr-[6px]"
+                                            inputClass="flex-row-reverse justify-end items-center !font-normal"
+                                            Value='flatRate'
+                                        />
                                         <p className='text-[12px]/[18px] text-[#757575] pl-[20px]'>R0,00</p>
                                     </div>
                                 </div>
@@ -108,8 +131,11 @@ const MainCart = () => {
                         <button className="px-auto lg:hidden h-[50px] flex justify-center items-center gap-[8px] border-[2px] min-w-[200px] flex-1 border-[#000000]">
                             <span>View my cart</span>
                         </button>
-                        <Link className='flex-1 min-w-[200px]' to='/checkOut'>
-                            <button className="bg-[#FF7A00] text-white h-[50px] lg:h-[94px] w-full cursor-pointer">Proceed to checkout</button>
+                        <Link className='flex-1 min-w-[200px] ' to='/checkOut'>
+                            <Button
+                                content='Proceed to checkout'
+                                btnClass="!bg-[#FF7A00] !h-[50px] lg:!h-[94px] !text-[16px]/[24px]"
+                            />
                         </Link>
                     </div>
                 </div>

@@ -1,14 +1,78 @@
 import { Icon } from "@iconify/react"
 import { Slider, Rate } from "antd"
 import { useState } from "react"
+import Checkbox from "./Shared/Checkbox"
 
 const ActiveFilter = () => {
-  const [priceRange, setPriceRange] = useState([3, 50])
+  const [priceRange, setPriceRange] = useState([3, 100])
+  const [checkboxes, setCheckboxes] = useState({
+    inStock: false,
+    onBackOrder: false,
+    outOfStock: false,
+    Site1: false,
+    Site10: false,
+    sites5: false,
+    R1: false,
+    R2: false,
+    R3: false,
+    R4: false,
+    R5: false,
+  });
+
   const handleChange = (value) => {
     setPriceRange(value);
   };
+  const handleClick = () => {
+    setPriceRange([3, 100]);
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { name, checked } = e.target;
+    setCheckboxes((prev) => ({
+      ...prev,
+      [name]: checked,
+    }));
+  };
+  const resetStockStatus = () => {
+    setCheckboxes({
+      inStock: false,
+      onBackOrder: false,
+      outOfStock: false,
+    });
+  }
+  const resetAttributes = () => {
+    setCheckboxes({
+      Site1: false,
+      Site10: false,
+      sites5: false,
+    });
+  }
+  const resetRating = () => {
+    setCheckboxes({
+      R1: false,
+      R2: false,
+      R3: false,
+      R4: false,
+      R5: false,
+    });
+  }
+  const clearAllFilter = () => {
+    setCheckboxes({
+      inStock: false,
+      onBackOrder: false,
+      outOfStock: false,
+      Site1: false,
+      Site10: false,
+      sites5: false,
+      R1: false,
+      R2: false,
+      R3: false,
+      R4: false,
+      R5: false,
+    })
+  }
   return (
-    <div className="activeFilter w-[361px] px-[20.5px] my-[20px] border-[2px] border-'#000000' flex flex-col justify-center items-center gap-[25px]">
+    <div className="activeFilter w-full px-[20.5px] my-[20px] border-[2px] border-'#000000' flex flex-col justify-center items-center gap-[25px]">
       <div className="flex w-full flex-col">
         <p className="text-[30px]/[42px] font-bold mb-[10px]">Active filters</p>
         <div className="flex gap-[20px] mb-[20px]">
@@ -26,7 +90,7 @@ const ActiveFilter = () => {
           </div>
         </div>
         <div className="flex justify-end">
-          <button className="text-[#FF0000]">Clear All</button>
+          <button onClick={clearAllFilter} className="text-[#FF0000] text-[16px]/[24px] font-medium cursor-pointer">Clear All</button>
         </div>
       </div>
       <div className="flex flex-col w-full">
@@ -52,69 +116,113 @@ const ActiveFilter = () => {
           <p className="text-[16px]/[24px] font-bold w-[63.5px] h-[38px] border border-1px border-[#000000] flex items-center justify-center">R{priceRange[1] * 50}</p>
         </div>
         <div className="flex justify-end">
-          <button className="text-[#FF0000]">Reset</button>
+          <button type='button' onClick={handleClick} className="text-[#FF0000] text-[16px]/[24px] font-medium cursor-pointer">Reset</button>
         </div>
       </div>
       <div className="flex flex-col w-full text-[16px]/[24px] font-medium">
         <p className="text-[30px]/[42px] font-bold mb-[20px]">Filter by stock status</p>
-        <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="inStock" id="inStock" />
-          <label className="w-fit" htmlFor="inStock">In stock</label>
-        </div>
-        <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="onBackOrder" id="onBackOrder" />
-          <label className="w-fit" htmlFor="onBackOrder">On back order</label>
-        </div>
-        <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="outOfStock" id="outOfStock" />
-          <label className="w-fit" htmlFor="outOfStock">Out of stock</label>
-        </div>
+        <Checkbox
+          id="inStock"
+          name="inStock"
+          label="In stock"
+          numbers='1'
+          checked={checkboxes.inStock}
+          onChange={handleCheckboxChange}
+        />
+        <Checkbox
+          id="onBackOrder"
+          name="onBackOrder"
+          label="On back order"
+          numbers='1'
+          checked={checkboxes.onBackOrder}
+          onChange={handleCheckboxChange}
+        />
+        <Checkbox
+          id="outOfStock"
+          name="outOfStock"
+          label="Out of stock"
+          numbers='1'
+          checked={checkboxes.outOfStock}
+          onChange={handleCheckboxChange}
+        />
         <div className="flex justify-end">
-          <button className="text-[#FF0000]">Reset</button>
+          <button type='button' onClick={resetStockStatus} className="text-[#FF0000] cursor-pointer">Reset</button>
         </div>
       </div>
       <div className="flex flex-col w-full text-[16px]/[24px] font-medium">
         <p className="text-[30px]/[42px] font-bold mb-[20px]">Filter by attribute</p>
-        <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="1Site" id="1Site" />
-          <label className="w-fit" htmlFor="1Site">1 site</label>
-        </div>
-        <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="10Sites" id="10Sites" />
-          <label className="w-fit" htmlFor="10Sites">10 sites</label>
-        </div>
-        <div className="flex items-start gap-[12px] mb-[10px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="outOfStock" id="5Sites" />
-          <label className="w-fit" htmlFor="5Sites">5 sites</label>
-        </div>
+        <Checkbox
+          id="Site1"
+          name="Site1"
+          label="1 site"
+          numbers='1'
+          checked={checkboxes.Site1}
+          onChange={handleCheckboxChange}
+        />
+        <Checkbox
+          id="Site10"
+          name="Site10"
+          label="10 sites"
+          numbers='1'
+          checked={checkboxes.Site10}
+          onChange={handleCheckboxChange}
+        />
+        <Checkbox
+          id="sites5"
+          name="sites5"
+          label="5 sites"
+          numbers='1'
+          checked={checkboxes.sites5}
+          onChange={handleCheckboxChange}
+        />
         <div className="flex justify-end">
-          <button className="text-[#FF0000]">Reset</button>
+          <button type='button' onClick={resetAttributes} className="text-[#FF0000] cursor-pointer">Reset</button>
         </div>
       </div>
       <div className="flex flex-col w-full gap-[20px] mb-[20px]">
-        <p>Filter by rating</p>
-        <div className="flex gap-[12px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R5" id="R5" />
-          <label className="w-fit" htmlFor="R5"><Rate value={5} disabled/></label>
-        </div>
-        <div className="flex gap-[12px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R4" id="R4" />
-          <label className="w-fit" htmlFor="R4"><Rate value={4} disabled/></label>
-        </div>
-        <div className="flex gap-[12px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R3" id="R3" />
-          <label className="w-fit" htmlFor="R3"><Rate value={3} disabled/></label>
-        </div>
-        <div className="flex gap-[12px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R2" id="R2" />
-          <label className="w-fit" htmlFor="R2"><Rate value={2} disabled/></label>
-        </div>
-        <div className="flex gap-[12px]">
-          <input className="w-[26px] h-[26px] text-black accent-white" type="checkbox" name="R1" id="R1" />
-          <label className="w-fit" htmlFor="R1"><Rate value={1} disabled/></label>
-        </div>
+        <p className="text-[30px]/[42px] mb-[20px] font-bold">Filter by rating</p>
+        <Checkbox
+          id="R5"
+          name="R5"
+          label={<Rate value={5} disabled />}
+          numbers='1'
+          checked={checkboxes.R5}
+          onChange={handleCheckboxChange}
+        />
+        <Checkbox
+          id="R4"
+          name="R4"
+          label={<Rate value={4} disabled />}
+          numbers='1'
+          checked={checkboxes.R4}
+          onChange={handleCheckboxChange}
+        />
+        <Checkbox
+          id="R3"
+          name="R3"
+          label={<Rate value={3} disabled />}
+          numbers='1'
+          checked={checkboxes.R3}
+          onChange={handleCheckboxChange}
+        />
+        <Checkbox
+          id="R2"
+          name="R2"
+          label={<Rate value={2} disabled />}
+          numbers='1'
+          checked={checkboxes.R2}
+          onChange={handleCheckboxChange}
+        />
+        <Checkbox
+          id="R1"
+          name="R1"
+          label={<Rate value={1} disabled />}
+          numbers='1'
+          checked={checkboxes.R1}
+          onChange={handleCheckboxChange}
+        />
         <div className="flex justify-end">
-          <button className="text-[#FF0000]">Reset</button>
+          <button type='button' onClick={resetRating} className="text-[#FF0000] text-[16px]/[24px] font-medium cursor-pointer">Reset</button>
         </div>
       </div>
     </div>
