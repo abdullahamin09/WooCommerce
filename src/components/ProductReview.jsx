@@ -4,6 +4,7 @@ import userImg from '../assets/images/userImg.png'
 import Button from "./Shared/Button"
 import Input from './Shared/Input'
 import Checkbox from './Shared/Checkbox';
+import TextArea from './Shared/TextArea';
 
 const ProductReview = () => {
     const [activeSection, setActiveSection] = useState('description')
@@ -70,8 +71,12 @@ const ProductReview = () => {
                                 </div>
                                 <form className="text-[20px]/[30px] font-medium flex flex-col mb-[40px]">
                                     <div className='mb-[30px]'>
-                                        <label htmlFor='yourReview'>Your Review <span className='text-[#FF0000]'>*</span></label><br />
-                                        <textarea className='w-full h-[155px] bg-[#FFFFFF] border-[2px] px-[1px] border-[#2B2D2F] outline-none resize-none' id="yourReview" name="yourReview" />
+                                        <TextArea
+                                            Label="Your Review"
+                                            id='yourReview'
+                                            Name='yourReview'
+                                            important
+                                        />
                                     </div>
                                     <div className="name flex max-md:flex-col gap-[26px] mb-[40px]">
                                         <Input

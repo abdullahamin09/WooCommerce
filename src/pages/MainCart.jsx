@@ -30,7 +30,7 @@ const MainCart = () => {
     ]
     return (
 
-        <div className='mx-[30px] lg:mx-[120px] flex lg:flex-row flex-col my-[70px] gap-10'>
+        <div className='mx-[30px] lg:mx-[120px] flex lg:flex-row flex-col my-[70px] gap-10 my-[50px]'>
             <div className="left w-full lg:w-[60%]">
                 <div className="text-[30px]/[42px] max-lg:hidden font-bold flex flex-row lg:gap-[20px] w-full mb-[30px]">
                     <div className='border-b-[1px] w-full border-[#000000] pb-[12px]'>
@@ -50,7 +50,6 @@ const MainCart = () => {
                                 Price={products.price}
                                 DiscountPrice={products.discountPrice}
                                 Discount={products.discount}
-                                rprice={products.rPrice}
                                 Lisence={products.lisence}
                             />
                         </div>
@@ -68,7 +67,7 @@ const MainCart = () => {
                         <p>Basket Total</p>
                     </div>
                     <div className='max-md:hidden border-b-[1px] border-[#000000] text-[#2F8EFF] pb-[15px] mb-[12px] text-[20px]/[32px] underline font-bold'>
-                        <p>Add a coupon</p>
+                        <p  className='cursor-pointer'>Add a coupon</p>
                     </div>
                     <table className="Subtotal lg:border-b-[1px] border-[#000000] w-full text-left text-[20px]/[30px] max-lg:mx-[40px]">
                         <tr className="h-[62px] lg:border-b-[1px] border-[#000000]">

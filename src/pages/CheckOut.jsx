@@ -1,10 +1,14 @@
-import { Icon } from "@iconify/react"
 import { Link } from "react-router-dom"
 import Button from "../components/Shared/Button"
 import Checkbox from "../components/Shared/Checkbox"
 import Input from "../components/Shared/Input"
+import CartProductCard from "../components/Cards/CartProductCard"
 
 const CheckOut = () => {
+    const products = [
+        { id: 1, title: "Product Title", rating: 5, price: 3000, discountPrice: "2500", itemNumber: 1 },
+        { id: 2, title: "Product Title", rating: 4, price: 4000, itemNumber: 4 },
+    ];
     return (
         <div className="checkOut mx-[50px]  mt-10">
             <p className="text-[48px]/[66px] font-bold mb-[30px]">Checkout</p>
@@ -231,49 +235,20 @@ const CheckOut = () => {
                 </div>
                 <div className="right lg:w-[40%]">
                     <div className="max-w-[500px] mx-auto">
-                        <div className="product flex gap-[20px]  pt-[22px] mb-[32px] border-t-[1px] border-[#B4B7C1]">
-                            <div className="img relative">
-                                <div className="imgwrap w-[53px] h-[50px] bg-[#000000]">
-                                    <img className="w-full h-full object-contain" src="./images/card_logo.png" alt="" />
-                                </div>
-                                <div className="absolute flex justify-center items-center w-[31px] h-[29px] rounded-full bg-white  right-[-15px] top-[-14px]">
-                                    <div className="border-[2px] bg-white rounded-full flex justify-center items-center border-[#000000] w-[27px] h-[25px]">
-                                        1
-                                    </div>
-                                </div>
+                        {products.map((products) => (
+                            <div className="pt-[22px] mb-[32px] border-t-[1px] border-[#B4B7C1]">
+                                <CartProductCard
+                                    key={products.id}
+                                    Title={products.title}
+                                    Price={products.price}
+                                    DiscountPrice={products.discountPrice}
+                                    itemNumber={products.itemNumber}
+                                />
                             </div>
-                            <div className="text-[16px]/[24px] flex flex-col  font-medium">
-                                <div className="flex justify-between font-bold">
-                                    <p>LSX Mega Menus</p>
-                                    <p>R100,00</p>
-                                </div>
-                                <p>R100,00</p>
-                                <p>Display beautiful banners on your LSX WordPress site with the LSX Banners extension, which offers…</p>
-                            </div>
-                        </div>
-                        <div className="product flex gap-[20px]  pt-[22px] mb-[32px] border-t-[1px] border-[#B4B7C1]">
-                            <div className="img relative">
-                                <div className="imgwrap w-[53px] h-[50px] bg-[#000000]">
-                                    <img className="w-full h-full object-contain" src="./images/card_logo.png" alt="" />
-                                </div>
-                                <div className="absolute flex justify-center items-center w-[31px] h-[29px] rounded-full bg-white  right-[-15px] top-[-14px]">
-                                    <div className="border-[2px] bg-white rounded-full flex justify-center items-center border-[#000000] w-[27px] h-[25px]">
-                                        1
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text-[16px]/[24px] flex flex-col  font-medium">
-                                <div className="flex justify-between font-bold">
-                                    <p>LSX Mega Menus</p>
-                                    <p>R50,00</p>
-                                </div>
-                                <p><span className="line-through pr-[6px]">R100,00</span>R50,00</p>
-                                <p>Display beautiful banners on your LSX WordPress site with the LSX Banners extension, which offers…</p>
-                            </div>
-                        </div>
+                        ))}
                         <div className="text-[20px]/[30px] font-medium">
                             <div className="couponWrap flex text-[#2F8EFF] font-bold pt-[22px] mb-[22px] border-t-[1px] border-[#B4B7C1]">
-                                <p>Add a coupon</p>
+                                <p className="cursor-pointer">Add a coupon</p>
                             </div>
                             <div className="Subtotal flex justify-between pt-[22px] mb-[22px] border-t-[1px] border-[#B4B7C1]">
                                 <p>Subtotal</p>

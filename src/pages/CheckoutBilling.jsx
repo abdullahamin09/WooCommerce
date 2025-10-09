@@ -3,6 +3,7 @@ import EditAddress from "./EditAddress"
 import Button from "../components/Shared/Button"
 import Checkbox from "../components/Shared/Checkbox"
 import Input from "../components/Shared/Input"
+import TextArea from "../components/Shared/TextArea"
 
 const CheckoutBilling = () => {
   return (
@@ -19,84 +20,89 @@ const CheckoutBilling = () => {
         <div className="left flex-1">
           <EditAddress EditAddressProp='Billing' />
         </div>
-        <div className="right flex-1">
+        <div className="right flex-1 flex flex-col gap-[40px]">
           <Checkbox
             label="Deliver to a different address?"
             id="deliveryAddress"
             name="deliveryAddress"
             checkboxClass='!text-[30px]/[42px] !font-bold gap-[12px]'
           />
-          <div className="textarea flex mt-[40px] flex-col items-start gap-[12px] mb-[10px] text-[20px]/[30px] font-medium">
-            <label className="mb-[10px]" htmlFor="orderNotes">Order notes (optional)</label>
-            <textarea className="border-[2px] border-[#000000] w-full h-[180px] resize-none font-normal px-[6px]" name="orderNotes" id="orderNotes"></textarea>
-          </div>
+          <TextArea
+            Label="Order notes (optional)"
+            id='orderNotes'
+            Name='orderNotes'
+          />
         </div>
       </div>
       <div className="billingYourOrder mb-[40px]">
         <p className="text-[30px]/[42px] font-bold">Your order</p>
         <table className="border-[2px] border-[#50575E] md:w-full w-[1100px] text-left font-bold text-[20px]/[30px] my-[40px]">
-          <tr className="bg-[#50575E] text-white h-[66px] font-bold">
-            <th className="pl-[20px] w-[50%]">Product</th>
-            <th className="pl-[20px] w-[50%]">Subtotal</th>
-          </tr>
-          <tr className="border-b-[2px] border-[#50575E] data-row h-[66px] py-[18px]">
-            <td className="pl-[20px] font-bold">
-              <p>LSX Mega Menus x 1</p>
-            </td>
-            <td className="pl-[20px]">
-              <p>R100,00</p>
-            </td>
-          </tr>
-          <tr className="border-b-[2px] border-[#50575E] data-row h-[66px] py-[18px]">
-            <td className="pl-[20px] font-medium">
-              <p>Subtotal</p>
-            </td>
-            <td className="pl-[20px]">
-              <p>R100,00</p>
-            </td>
-          </tr>
-          <tr className="border-b-[2px] border-[#50575E] data-row py-[18px]">
-            <td className="pl-[20px] font-medium">
-              <p>Shipping</p>
-            </td>
-            <td className="pl-[20px] text-[20px]/[30px] font-medium py-[10px]">
-              <Input
-                Label='Free shipping'
-                HtmlFor="freeShipping"
-                Name='shipping'
-                type="radio"
-                inputTagClass="!w-[16px] !h-[16px] mr-[9px]"
-                inputClass="flex-row-reverse justify-end items-center mb-[10px]"
-                Value='freeShipping'
-              />
-              <Input
-                Label='Local pickup'
-                HtmlFor="localPickup"
-                Name='shipping'
-                type="radio"
-                inputTagClass="!w-[16px] !h-[16px] mr-[9px]"
-                inputClass="flex-row-reverse justify-end items-center mb-[10px]"
-                Value='localPickup'
-              />
-              <Input
-                Label='Flat rate: R50'
-                HtmlFor="flatRate"
-                Name='shipping'
-                type="radio"
-                inputTagClass="!w-[16px] !h-[16px] mr-[9px]"
-                inputClass="flex-row-reverse justify-end items-center mb-[10px]"
-                Value='flatRate'
-              />
-            </td>
-          </tr>
-          <tr className="data-row h-[66px] py-[18px]">
-            <td className="pl-[20px]">
-              <p>Total</p>
-            </td>
-            <td className="pl-[20px]">
-              <p>R100,00</p>
-            </td>
-          </tr>
+          <thead>
+            <tr className="bg-[#50575E] text-white h-[66px] font-bold">
+              <th className="pl-[20px] w-[50%]">Product</th>
+              <th className="pl-[20px] w-[50%]">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b-[2px] border-[#50575E] data-row h-[66px] py-[18px]">
+              <td className="pl-[20px] font-bold">
+                <p>LSX Mega Menus x 1</p>
+              </td>
+              <td className="pl-[20px]">
+                <p>R100,00</p>
+              </td>
+            </tr>
+            <tr className="border-b-[2px] border-[#50575E] data-row h-[66px] py-[18px]">
+              <td className="pl-[20px] font-medium">
+                <p>Subtotal</p>
+              </td>
+              <td className="pl-[20px]">
+                <p>R100,00</p>
+              </td>
+            </tr>
+            <tr className="border-b-[2px] border-[#50575E] data-row py-[18px]">
+              <td className="pl-[20px] font-medium">
+                <p>Shipping</p>
+              </td>
+              <td className="pl-[20px] text-[20px]/[30px] font-medium py-[10px]">
+                <Input
+                  Label='Free shipping'
+                  HtmlFor="freeShipping"
+                  Name='shipping'
+                  type="radio"
+                  inputTagClass="!w-[16px] !h-[16px] mr-[9px]"
+                  inputClass="flex-row-reverse justify-end items-center mb-[10px]"
+                  Value='freeShipping'
+                />
+                <Input
+                  Label='Local pickup'
+                  HtmlFor="localPickup"
+                  Name='shipping'
+                  type="radio"
+                  inputTagClass="!w-[16px] !h-[16px] mr-[9px]"
+                  inputClass="flex-row-reverse justify-end items-center mb-[10px]"
+                  Value='localPickup'
+                />
+                <Input
+                  Label='Flat rate: R50'
+                  HtmlFor="flatRate"
+                  Name='shipping'
+                  type="radio"
+                  inputTagClass="!w-[16px] !h-[16px] mr-[9px]"
+                  inputClass="flex-row-reverse justify-end items-center mb-[10px]"
+                  Value='flatRate'
+                />
+              </td>
+            </tr>
+            <tr className="data-row h-[66px] py-[18px]">
+              <td className="pl-[20px]">
+                <p>Total</p>
+              </td>
+              <td className="pl-[20px]">
+                <p>R100,00</p>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div className="paymentDetails bg-[#EBE9EB] w-full text-[20px]/[30px] font-medium pt-[10px] pb-[30px] px-[20px] mb-[60px]">
