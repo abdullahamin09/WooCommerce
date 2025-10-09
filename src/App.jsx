@@ -14,6 +14,7 @@ import CheckOut from './pages/CheckOut'
 import CheckoutBilling from './pages/CheckoutBilling'
 import CheckoutConfirmed from './pages/CheckoutConfirmd'
 import Services from './components/Services'
+import ContactUs from './components/ContactUs'
 import Review from './pages/Review'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path='/home' element={<Home />} />
             <Route path='/login' element={<Auth />} />
             <Route path='/services' element={<Services />} />
+            <Route path='/contactus' element={<ContactUs />} />
             <Route path='/forgetpassword' element={<ResetPassword />} />
             <Route path='/myaccount/*' element={<MyAccount />} />
             <Route path='/shop' element={<Shop />} />

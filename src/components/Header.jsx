@@ -73,7 +73,7 @@ const Header = () => {
             <a href="#" className="hover:text-[blue] transition-colors duration-300">About</a>
           </li>
           <li className="pl-[30px] md:pl-0 max-md:h-[50px]">
-            <a href="" className="hover:text-[blue] transition-colors duration-300">Contact</a>
+            <Link to="/contactus" className="hover:text-[blue] transition-colors duration-300">Contact</Link>
           </li>
         </ul>
         <div className="flex justify-between items-center space-x-4">
