@@ -1,3 +1,4 @@
+
 import { Icon } from '@iconify/react'
 import { Link } from 'react-router-dom'
 import Button from './Shared/Button'
@@ -113,3 +114,4 @@ const Auth = () => {
 }
 
 export default Auth
+

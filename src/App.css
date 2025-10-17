@@ -1,3 +1,4 @@
+
 .shop-card-pagination .ant-pagination {
     display: flex;
     justify-content: center;
@@ -201,3 +202,4 @@ th {
 .checkoutConfirmed .checkOutAddress .orderDetailsAddress .address .shippingAddress {
     display: none;
 }
+

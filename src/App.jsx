@@ -24,24 +24,24 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-            <Route index element={<Home />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/login' element={<Auth />} />
-            <Route path='/services' element={<Services />} />
-            <Route path='/contactus' element={<ContactUs />} />
-            <Route path='/forgetpassword' element={<ResetPassword />} />
-            <Route path='/myaccount/*' element={<MyAccount />} />
-            <Route path='/shop' element={<Shop />} />
-            <Route path='/basket' element={<Cart />} />
-            <Route path='/cart' element={<MainCart />} />
-            <Route path='/singleproduct' element={<SingleProduct />} />
-            <Route path='/checkOut' element={<CheckOut />} />
-            <Route path='/checkoutbilling' element={<CheckoutBilling />} />
-            <Route path='/checkoutconfirmed' element={<CheckoutConfirmed />} />
-            <Route path='/review' element={<Review />} />
+          <Route index element={<Home />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/login' element={<Auth />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/contactus' element={<ContactUs />} />
+          <Route path='/forgetpassword' element={<ResetPassword />} />
+          <Route path='/myaccount/*' element={<MyAccount />} />
+          <Route path='/shop' element={<Shop />} />
+          <Route path='/basket' element={<Cart />} />
+          <Route path='/cart' element={<MainCart />} />
+          <Route path='/singleproduct' element={<SingleProduct />} />
+          <Route path='/checkOut' element={<CheckOut />} />
+          <Route path='/checkoutbilling' element={<CheckoutBilling />} />
+          <Route path='/checkoutconfirmed' element={<CheckoutConfirmed />} />
+          <Route path='/review' element={<Review />} />
         </Routes>
         <Footer />
-    </BrowserRouter>
+      </BrowserRouter>
     </>
   )
 }

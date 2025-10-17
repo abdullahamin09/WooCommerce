@@ -1,5 +1,3 @@
-
-
 const Checkbox = ({ id, name, label, numbers, required = false, checked, onChange, checkboxClass }) => {
     return (
         <div className={`flex items-center gap-[12px] mb-[10px] text-[16px]/[24px] font-medium ${checkboxClass}`}>
@@ -41,4 +39,3 @@ const Checkbox = ({ id, name, label, numbers, required = false, checked, onChang
 }
 
 export default Checkbox
-
