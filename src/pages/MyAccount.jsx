@@ -3,13 +3,64 @@ import AddressMyAcc from "../components/AddressMyAcc";
 import EditAddress from "./EditAddress";
 import AccountDetails from "./AccountDetails";
 import OrderDetails from "../components/OrderDetails";
-import { Link, Route, Routes, useLocation } from "react-router-dom";
+import { Link, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import MyAccDashboard from "../components/MyAccDashboard";
 import MyAccOrder from "../components/MyAccOrder";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { message } from "antd";
 
 const MyAccount = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
   const location = useLocation();
   const currentPath = location.pathname;
+  const [messageApi, contextHolder] = message.useMessage();
+
+
+  // Call Secure Api
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/api/profile", {
+          withCredentials: true, // send cookies for auth
+        });
+        console.log("User Profile:", response.data);
+        setUser(response.data.user);
+      } catch (error) {
+        console.error("Failed to load profile:", error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+  if (!user) return <p>Loading...</p>;
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:8000/api/auth/logout",
+        {},
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      messageApi.open({
+        type: 'success',
+        content: 'Logging Out',
+      });
+      console.log("Response:", res.data);
+      navigate('/login');
+    } catch (error) {
+      console.log("Logout Error:", error);
+      alert("Logout Failed");
+    }
+  };
+
+
   const getPageTitle = () => {
     if (currentPath === '/myaccount/' || currentPath === '/myaccount') return 'My Account';
     if (currentPath.startsWith('/myaccount/order')) return 'My Account - Orders';
@@ -55,6 +106,7 @@ const MyAccount = () => {
 
   return (
     <div className=' mx-[120px] mt-10'>
+      {contextHolder}
       {/* <div className='text-[12px]/[18px] font-medium flex mb-[10px]'>
         <p className='underline'>Home</p><span className='text-[#9B9B9B] pl-[2px] pr-[4px]'>/</span><p className='text-[#9B9B9B]'>My Account</p>
       </div> */}
@@ -90,10 +142,11 @@ const MyAccount = () => {
             >
               <Link to='/myaccount/accountdetails' className="w-full h-full flex items-center">Account details</Link>
             </li>
-            <li
+            <li onClick={handleLogout}
               className={`h-[78px] w-[285px] border-[1px] border-t-0 border-[#000000] flex items-center pl-[30px] ${currentPath.startsWith('/logout') ? 'bg-[#000000] text-[white]' : ''}`}
             >
-              <Link to='/login' className="w-full h-full flex items-center">Logout</Link>
+              <Link className="w-full h-full flex items-center bg-">Logout</Link>
+
             </li>
           </ul>
         </div>

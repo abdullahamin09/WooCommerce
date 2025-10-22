@@ -17,6 +17,7 @@ import Services from './components/Services'
 import ContactUs from './components/ContactUs'
 import ContactMessages from './components/ContactMessages'
 import Review from './pages/Review'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
 
@@ -28,11 +29,16 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/home' element={<Home />} />
           <Route path='/login' element={<Auth />} />
+          <Route path='/signup' element={<Auth />} />
           <Route path='/services' element={<Services />} />
           <Route path='/contactus' element={<ContactUs />} />
           <Route path='/contactmessages' element={<ContactMessages />} />
           <Route path='/forgetpassword' element={<ResetPassword />} />
-          <Route path='/myaccount/*' element={<MyAccount />} />
+          <Route path='/myaccount/*' element={
+            <ProtectedRoute>
+              <MyAccount />
+            </ProtectedRoute>
+          } />
           <Route path='/shop' element={<Shop />} />
           <Route path='/basket' element={<Cart />} />
           <Route path='/cart' element={<MainCart />} />
