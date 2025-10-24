@@ -18,6 +18,7 @@ import ContactUs from './components/ContactUs'
 import ContactMessages from './components/ContactMessages'
 import Review from './pages/Review'
 import ProtectedRoute from './components/ProtectedRoute'
+import AdminDashboard from './pages/AdminDashboard'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/home' element={<Home />} />
           <Route path='/login' element={<Auth />} />
+          <Route path='/admin' element={<AdminDashboard />} />
           <Route path='/signup' element={<Auth />} />
           <Route path='/services' element={<Services />} />
           <Route path='/contactus' element={<ContactUs />} />
