@@ -82,7 +82,7 @@ const Header = () => {
             <img className="w-full hover:scale-110 transition-transform duration-300 dark:hidden" src={cartImg} alt="cart" />
             <img className="w-full hover:scale-110 transition-transform duration-300 hidden dark:block" src={darkCartImg} alt="cart" />
           </Link>
-          <Link to="/login" className="accWrap [29px]">
+          <Link to="/myaccount" className="accWrap [29px]">
             <img className="w-full hover:scale-110 transition-transform duration-300 dark:hidden" src={accImg} alt="account" />
             <img className="w-full hover:scale-110 transition-transform duration-300 hidden dark:block" src={darkAccImg} alt="account" />
           </Link>

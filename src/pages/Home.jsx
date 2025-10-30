@@ -44,7 +44,6 @@ const Home = () => {
     <div className='flex flex-col gap-4 text-2xl font-semibold'>
       <FeaturedCategory Features='Welcome To Home Page' Details='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore .' />
       <div className='text-center'>Go to <Link to='/admin' className='text-[#87CEEB] hover:text-[#4169E1]'>Admin Page</Link></div>
-      <p>It is admin</p>
       <section>
         <div className='Card-wrap place-items-center grid md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 grid-cols-1 gap-5 my-10 mx-[30px]'>
 
@@ -54,6 +53,7 @@ const Home = () => {
               Title={product.title}
               Price={product.price}
               Image={product.Image?.url || product.Image}
+              discountPrice={product.discountPrice}
               // Prating={product.rating}
               Description={product.description}
             />

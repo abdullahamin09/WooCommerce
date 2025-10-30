@@ -7,8 +7,8 @@ const Card = ({ Title, Price, discountPrice, Ratings, Description, Image }) => {
     // const [value, setValue] = useState(3);
     return (
         <div className="main-card  xl:max-w-[285px] max-sm:max-w-[350px]">
-            <div className="relative img-wrap w-full h-[285px]  flex justify-center items-center">
-                <img src={Image} alt={Title} />
+            <div className="relative img-wrap w-full h-[285px] bg-black flex justify-center items-center">
+                <img src={Image ? Image : "/images/card_logo.png"} alt={Title || "Placeholder"} />
                 {discountPrice &&
                     <div className="absolute right-[10px] top-[10px] w-[56px] h-[25.6px] text-[16px]/[17.8px] text-center bg-white py-[4px] border-1px border-black rounded-[3px]">SALE</div>
                 }

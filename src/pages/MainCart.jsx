@@ -6,15 +6,15 @@ import Button from '../components/Shared/Button';
 
 const MainCart = () => {
     const products = [
-        { id: 1, title: "Product Title", rating: 5, price: 3000, discountPrice: "2500", discount: "Save 500", lisence: "1Site" },
+        { id: 1, title: "Product Title", rating: 5, price: 3000, discountPrice: "2500", lisence: "1Site" },
         { id: 2, title: "Product Title", rating: 4, price: 4000, },
-        { id: 3, title: "Product Title", rating: 3, price: 1500, discountPrice: "10000", discount: "Save 50,00", lisence: "1Site" },
+        { id: 3, title: "Product Title", rating: 3, price: 15000, discountPrice: "14000", lisence: "1Site" },
         { id: 4, title: "Product Title", rating: 2, price: 4999, },
         { id: 5, title: "Product Title", rating: 1, price: 999, },
-        { id: 6, title: "Product Title", rating: 4, price: "20000", discountPrice: "10000", discount: "Save 50,00" },
+        { id: 6, title: "Product Title", rating: 4, price: "20000", discountPrice: "10000"},
         { id: 7, title: "Product Title", rating: 5, price: 8900, },
         { id: 8, title: "Product Title", rating: 3, price: 2210, },
-        { id: 9, title: "Product Title", rating: 2, price: 1299, discountPrice: "1200", discount: "Save 50,00", lisence: "1Site" },
+        { id: 9, title: "Product Title", rating: 2, price: 1299, discountPrice: "1200", lisence: "1Site" },
         { id: 10, title: "Product Title", rating: 4, price: 6540, },
         { id: 11, title: "Product Title", rating: 5, price: 12000, },
         { id: 12, title: "Product Title", rating: 1, price: 8500, },
@@ -49,7 +49,6 @@ const MainCart = () => {
                                 Rating={products.rating}
                                 Price={products.price}
                                 DiscountPrice={products.discountPrice}
-                                Discount={products.discount}
                                 Lisence={products.lisence}
                             />
                         </div>

@@ -96,11 +96,11 @@ const Shop = () => {
             onClose={onClose}
             width={400}
             open={open}
-            // styles={{
-            //   header: {
-            //     font-size: 30px; 
-            //   }
-            // }}
+          // styles={{
+          //   header: {
+          //     font-size: 30px; 
+          //   }
+          // }}
           >
             <ActiveFilter />
           </Drawer>
@@ -142,10 +142,10 @@ const Shop = () => {
             {currentProducts.map((product) => (
               <Card className='w-[224px]'
                 key={product.id}
-                Ptitle={product.title}
-                Pprice={product.price}
-                Prating={product.rating}
-                Pdetails={product.details}
+                Title={product.title}
+                Price={product.price}
+                Ratings={product.rating}
+                Description={product.details}
                 discountPrice={product.discountPrice}
               />
             ))}

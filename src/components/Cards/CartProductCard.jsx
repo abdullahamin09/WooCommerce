@@ -1,7 +1,7 @@
 import { Rate } from "antd";
 import { useState } from "react";
 
-const CartProductCard = ({ Title, Rating, Price, DiscountPrice, Discount, Lisence, itemNumber = false }) => {
+const CartProductCard = ({ Title, Rating, Price, DiscountPrice, Lisence, itemNumber = false }) => {
     const [q, setQ] = useState(1);
     return (
         <div>
@@ -31,9 +31,9 @@ const CartProductCard = ({ Title, Rating, Price, DiscountPrice, Discount, Lisenc
                                 <span className="font-bold">R{DiscountPrice}</span>
                             )}
                         </div>
-                        {Discount && (
+                        {DiscountPrice && (
                             <p className="font-bold text-[12px]/[18px] border-1 border-[#43454B] text-center px-[8px] py-[3px] w-25 items-center rounded-sm">
-                                R{Discount}
+                                Save {Price-DiscountPrice}
                             </p>
                         )}
                         <p className={`${itemNumber ? 'font-medium' : 'font-normal'}`}>
